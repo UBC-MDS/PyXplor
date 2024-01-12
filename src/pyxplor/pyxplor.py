@@ -59,3 +59,5 @@ def plot_binary(input_df: pd.DataFrame,
     binary = ["binary_var1", "binary_var2"]
     plot_binary(df, binary, "h", 30, 10, "count", 10, 10, "sample.png")
     """
+    
+    pass # Implementation to be added
