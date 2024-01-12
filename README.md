@@ -4,7 +4,7 @@ A package for simplifying the EDA of different data types!
 
 ## About
 
-**INSERT SUMMARY PARAGRAPH**
+`pyxplor` is a comprehensive Python package designed to automate and streamline the Exploratory Data Analysis (EDA) process. Tailored for various data types including numeric, categorical, binary, and time series data, `pyxplor` aims to enhance data interpretation through a suite of specialized plotting functions. This package seeks to reduce the complexity and time invested in initial data analysis, making it an essential tool for data scientists and analysts at all levels.
 
 ## Installation
 
@@ -14,12 +14,15 @@ $ pip install pyxplor
 
 ## Functions
 
-**INCLUDE BULLETED LIST OF FUNCTIONS (AND DATASETS IF APPLICABLE) THAT WILL BE INCLUDED IN THE FUNCTIONS (1-2 sentence description for each function/dataset)**
+- `numeric_explorer(data)`: Analyzes and plots key statistical insights for numeric data, including distributions, outliers, and central tendencies.
+- `categorical_explorer(data)`: Visualizes categorical data through frequency counts, proportions, and relationships between categories.
+- `binary_explorer(data)`: Tailored for binary data, this function generates plots that highlight distributions, imbalances, and associations.
+- `time_series_explorer(data)`: Specialized for time-series analysis, offering trend identification, seasonality detection, and temporal patterns visualization.
 
 
 ## PyXplor Use in Python Ecosystem
 
-**INCLUDE A PARAGRAPH DESCRIBING WHERE YOUR PACKAGES FIT INTO THE PYTHON ECOSYSTEM (are there any other Python packages that have the same/similar functionality? Provide links to any that do. If none exist, then clearly state this as well)**
+While there are several EDA packages in the Python ecosystem, such as `pandas-profiling` ([link](https://github.com/pandas-profiling/pandas-profiling)) and `sweetviz` ([link](https://github.com/fbdesignpro/sweetviz)), `pyxplor` differentiates itself by offering specialized functions for different data types. This targeted approach enables more nuanced and relevant insights, particularly for binary and time-series data which are often less catered for in existing tools. `pyxplor` complements these existing tools by filling these specific gaps, thus enriching the Python EDA toolkit.
 
 ## Contributing
 
