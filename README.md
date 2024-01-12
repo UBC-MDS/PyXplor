@@ -27,7 +27,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## Contributors
 
-- Ben Chen (@phchen5)
+- Po-Hsun (Ben) Chen (@phchen5)
 - Rachel Bouwer (@rbouwer)
 - Arturo Boquin (@arturoboquin)
 - Iris Luo (@luonianyi)
