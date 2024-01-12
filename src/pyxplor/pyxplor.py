@@ -1,3 +1,5 @@
+import pandas as pd
+
 def plot_binary(input_df: pd.DataFrame,
                 list_of_variables: list,
         figsize: tuple = (10, 6),
