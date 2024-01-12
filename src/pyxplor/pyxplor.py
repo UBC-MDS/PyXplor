@@ -1,6 +1,6 @@
 def plot_binary(input_df: pd.DataFrame,
                 list_of_variables: list,
-                fig_height: int,
+        figsize: tuple = (10, 6),
                 plot_kind: str,
                 label_y_offset: int,
                 label_fontsize: int,
