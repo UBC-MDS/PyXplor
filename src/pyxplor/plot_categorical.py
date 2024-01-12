@@ -39,7 +39,7 @@ def plot_categorical(
         Font size for axis labels. Default is 10.
 
     output_path : str, optional
-        Path to save the plot. Path to save the plot. Defaults to None, which means the plot will not be saved.
+        Path to save the plot. Defaults to the current working directory.
         
     super_title : str, optional
         Super title for the entire plot. Default is "Distribution of Categorical Variables".
