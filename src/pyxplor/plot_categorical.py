@@ -3,7 +3,7 @@ import pandas as pd
 def plot_categorical(
         input_df: pd.DataFrame,
         list_of_variables: list,
-        fig_height: int=6,
+        figsize: tuple = (10, 6),
         label_y_offset: int=0,
         label_fontsize: int=10,
         output_path: str = None,
