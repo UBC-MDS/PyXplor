@@ -1,13 +1,12 @@
-# Contributing
+# Contributing to the PyXplor package
 
-Contributions are welcome, and they are greatly appreciated! Every little bit
-helps, and credit will always be given.
+Contributions are welcome, and they are greatly appreciated! Every little bit helps, and credit will always be given. Your input and support are essential in making this tool more effective and user-friendly.
 
 ## Types of Contributions
 
 ### Report Bugs
 
-If you are reporting a bug, please include:
+If you are reporting a bug or have a feature request, please help us by opening an issue in our GitHub repository, tagged with the label "bug", and include:
 
 * Your operating system name and version.
 * Any details about your local setup that might be helpful in troubleshooting.
@@ -15,19 +14,11 @@ If you are reporting a bug, please include:
 
 ### Fix Bugs
 
-Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
-wanted" is open to whoever wants to implement it.
+Look through the GitHub issues for bugs. Anything tagged with "bug" and "help wanted" is open to whoever wants to implement it.
 
 ### Implement Features
 
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
-
-### Write Documentation
-
-You can never have enough documentation! Please feel free to contribute to any
-part of the documentation, such as the official docs, docstrings, or even
-on the web in blog posts, articles, and such.
+Look through the GitHub issues for features. Anything tagged with "enhancement" and "help wanted" is open to whoever wants to implement it.
 
 ### Submit Feedback
 
@@ -35,8 +26,6 @@ If you are proposing a feature:
 
 * Explain in detail how it would work.
 * Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
 
 ## Get Started!
 
@@ -67,7 +56,9 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated.
 3. The pull request should work for all currently supported operating systems and versions of Python.
 
+We aim to review pull requests within 7 days. Your contributions will be checked for adherence to our coding standards and overall quality.
+
 ## Code of Conduct
 
 Please note that the `pyxplor` project is released with a
-Code of Conduct. By contributing to this project you agree to abide by its terms.
+[Code of Conduct] (CONDUCT.md). By contributing to this project you agree to abide by its terms.
