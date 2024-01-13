@@ -13,6 +13,11 @@ def plot_time_series(input_df: pd.DataFrame,
                       super_title_font: int = 14) -> None:
     """Conducts exploratory data analysis on multiple time-series variables and generates line plot visualizations.
 
+    This function generates line plots for multiple time series variables specified in value_columns, 
+    each aggregated at a given frequency. It creates a single figure with subplots for each variable, 
+    allowing for easy comparison of trends, seasonality, and other time-series characteristics. 
+    The function also offers the option to save and display the resulting figure.
+
     Parameters
     ----------
     input_df : pd.DataFrame
