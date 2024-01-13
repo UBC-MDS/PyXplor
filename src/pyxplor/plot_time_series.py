@@ -62,7 +62,6 @@ def plot_time_series(input_df: pd.DataFrame,
         'expenses': np.random.rand(len(dates)) * 50,
     })
 
-    # Using the function to plot 'sales' and 'expenses' time series from the DataFrame
     xplor_time_series(data, 'date', ['sales', 'expenses'], freq='M', figsize=(12, 6))
 
     """
