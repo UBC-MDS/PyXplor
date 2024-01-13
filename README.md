@@ -14,10 +14,10 @@ $ pip install pyxplor
 
 ## Functions
 
-- `numeric_explorer(data)`: Analyzes and plots key statistical insights for numeric data, including distributions, outliers, and central tendencies.
-- `categorical_explorer(data)`: Visualizes categorical data through frequency counts, proportions, and relationships between categories.
-- `binary_explorer(data)`: Tailored for binary data, this function generates plots that highlight distributions, imbalances, and associations.
-- `time_series_explorer(data)`: Specialized for time-series analysis, offering trend identification, seasonality detection, and temporal patterns visualization.
+- `plot_numeric`: Visualizes key statistical insights for numeric data, including distributions and central tendencies.
+- `plot_categorical`: Visualizes categorical data through frequency counts, proportions, and relationships between categories.
+- `plot_binary`: Tailored for binary data, this function generates plots that highlight distributions, imbalances, and associations.
+- `plot_time_series`: Specialized for time-series analysis, offering trend identification, seasonality detection, and temporal patterns visualization.
 
 
 ## PyXplor Use in Python Ecosystem
