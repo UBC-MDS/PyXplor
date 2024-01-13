@@ -1,14 +1,15 @@
 import pandas as pd
 
-def plot_binary(input_df: pd.DataFrame,
-                list_of_variables: list,
+def plot_binary(
+        input_df: pd.DataFrame,
+        list_of_variables: list,
+        plot_kind: str,
+        label_y_offset: int,
+        label_fontsize: int,
         figsize: tuple = (10, 6),
-                plot_kind: str,
-                label_y_offset: int,
-                label_fontsize: int,
-                output_path: str = None,
-                super_title: str = "Distribution of Binary Variables",
-                super_title_font: int = 14) -> None:
+        output_path: str = None,
+        super_title: str = "Distribution of Binary Variables",
+        super_title_font: int = 14) -> None:
     """Plot the distribution of binary variables in a DataFrame, save the plot, and display it.
 
     This function will construct a set of subplots (either a bar plot or a pie chart)
@@ -23,14 +24,8 @@ def plot_binary(input_df: pd.DataFrame,
     list_of_variables : list
         List of binary variables (column names) to be plotted.
 
-    orientation : {'v', 'h'}
-        Orientation of the plots, either vertical or horizontal.
-
-    fig_width : int
-        Width of the figure.
-
-    fig_height : int
-        Height of the figure.
+    figsize: tuple[int, int]:
+        The width and height of the figure size in a tuple.
 
     plot_kind : {'count', 'pie'}
         Type of plot to be generated, a count plot or a pie chart.
