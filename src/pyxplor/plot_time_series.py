@@ -11,8 +11,7 @@ def plot_time_series(input_df: pd.DataFrame,
                       output_path: str = None, 
                       super_title: str = "Time Series Analysis",
                       super_title_font: int = 14) -> None:
-    """
-    Conducts exploratory data analysis on multiple time-series variables and generates line plot visualizations.
+    """Conducts exploratory data analysis on multiple time-series variables and generates line plot visualizations.
 
     Parameters
     ----------
