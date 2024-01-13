@@ -34,7 +34,7 @@ def plot_time_series(input_df: pd.DataFrame,
     freq : {"D", "W", "M"}, optional
         The frequency of the time-series data ('D' for daily, 'W' for weekly, etc.). Default is 'D'.
 
-    figsize : tuple, optional
+    figsize : tuple[int, int], optional
         The size of the plot in the format (width, height). Default is (10, 6).
 
     output_path : str, optional
