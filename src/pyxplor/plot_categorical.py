@@ -3,9 +3,9 @@ import pandas as pd
 def plot_categorical(
         input_df: pd.DataFrame,
         list_of_variables: list,
-        figsize: tuple = (10, 6),
         label_y_offset: int=0,
         label_fontsize: int=10,
+        figsize: tuple = (10, 6),
         output_path: str = None,
         super_title: str = "Distribution of Categorical Variables",
         super_title_font: int = 14) -> None:
@@ -23,15 +23,14 @@ def plot_categorical(
     list_of_variables : list
         List of categorical variables (column names) to be plotted.
 
-
-    figsize : tuple[int, int]
-        The width and height of the figure size in a tuple.
-
     label_y_offset : int
         Y-axis offset for label positioning. Default is 0.
 
     label_fontsize : int
         Font size for axis labels. Default is 10.
+
+    figsize : tuple[int, int], optional
+        The width and height of the figure size in a tuple.
 
     output_path : str, optional
         Path to save the plot. Defaults to the current working directory.

@@ -24,9 +24,6 @@ def plot_binary(
     list_of_variables : list
         List of binary variables (column names) to be plotted.
 
-    figsize: tuple[int, int]:
-        The width and height of the figure size in a tuple.
-
     plot_kind : {'count', 'pie'}
         Type of plot to be generated, a count plot or a pie chart.
 
@@ -35,6 +32,9 @@ def plot_binary(
 
     label_fontsize : int
         Font size for axis labels.
+
+    figsize: tuple[int, int], optional
+        The width and height of the figure size in a tuple.
 
     output_path : str, optional
         Path to save the plot. Defaults to the current working directory.

@@ -1,8 +1,4 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pandas as pd
-import math
-
 
 def plot_numeric(
         input_df: pd.DataFrame,
@@ -27,9 +23,6 @@ def plot_numeric(
     list_of_variables : list
         List of numeric variables (column names) to be plotted.
 
-    figsize: tuple[int, int]:
-        The width and height of the figure size in a tuple.
-
     plot_kind : {'hist', 'kde', 'hist+kde'}
         Type of plot to be generated:
         'hist': Histogram only.
@@ -41,6 +34,9 @@ def plot_numeric(
 
     label_fontsize : int
         Font size for axis labels.
+
+    figsize : tuple[int, int], optional
+        The width and height of the figure size in a tuple.
 
     output_path : str, optional
         Path to save the plot. Defaults to "numeric_distribution.png".
@@ -59,7 +55,7 @@ def plot_numeric(
     Examples
     --------
     numeric = ["numeric_var1", "numeric_var2"]
-    plot_numeric(df, numeric, "hist+kde", 30, 10, (15, 20), "numeric_distribution.png", "Distribution of Numeric Variables", 14)
+    plot_numeric(df, numeric, "hist+kde", 30, 10, (15, 20))
     """
 
     pass # Implementation to be added
