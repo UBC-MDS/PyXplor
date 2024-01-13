@@ -26,7 +26,7 @@ def plot_time_series(input_df: pd.DataFrame,
     value_columns : list
         A list of names of the columns in `input_df` that contain the numeric values to be analyzed.
 
-    freq : str, optional
+    freq : {"D", "W", "M"}, optional
         The frequency of the time-series data ('D' for daily, 'W' for weekly, etc.). Default is 'D'.
 
     figsize : tuple, optional
