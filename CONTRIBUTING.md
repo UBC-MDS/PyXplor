@@ -61,4 +61,4 @@ We aim to review pull requests within 7 days. Your contributions will be checked
 ## Code of Conduct
 
 Please note that the `pyxplor` project is released with a
-[Code of Conduct] (../CONDUCT.md). By contributing to this project you agree to abide by its terms.
+[Code of Conduct](../CONDUCT.md). By contributing to this project you agree to abide by its terms.
