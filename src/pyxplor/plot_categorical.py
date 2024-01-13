@@ -23,8 +23,6 @@ def plot_categorical(
     list_of_variables : list
         List of categorical variables (column names) to be plotted.
 
-    orientation : {'v', 'h'}
-        Orientation of the plots, either vertical or horizontal. Default is is horizontal.
 
     fig_width : int
         Width of the figure. Default is 10.
