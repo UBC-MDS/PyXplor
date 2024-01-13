@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def plot_time_series(input_df: pd.DataFrame, 
-
                       date_column: str, 
                       value_columns: list, 
                       freq: str = 'D', 
