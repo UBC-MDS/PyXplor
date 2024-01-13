@@ -1,3 +1,7 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
 def plot_time_series(input_df: pd.DataFrame, 
 
                       date_column: str, 
@@ -30,7 +34,7 @@ def plot_time_series(input_df: pd.DataFrame,
         The size of the plot in the format (width, height). Default is (10, 6).
 
     output_path : str, optional
-        Path to save the plot. Defaults to None, which means the plot will not be saved.
+        Path to save the plot. Defaults to the current working directory.
 
     super_title : str, optional
         Super title for the entire plot. Default is "Time Series Analysis".
