@@ -62,7 +62,7 @@ def plot_time_series(input_df: pd.DataFrame,
         'expenses': np.random.rand(len(dates)) * 50,
     })
 
-    xplor_time_series(data, 'date', ['sales', 'expenses'], freq='M', figsize=(12, 6))
+    plot_time_series(data, 'date', ['sales', 'expenses'], freq='M', figsize=(12, 6))
 
     """
 
