@@ -52,7 +52,7 @@ def plot_time_series(input_df: pd.DataFrame,
 
     Examples
     --------
-    # Example usage of the xplor_time_series function
+    # Example usage of the plot_time_series function
 
     # Sample DataFrame creation
     dates = pd.date_range(start='2020-01-01', end='2020-12-31', freq='D')
