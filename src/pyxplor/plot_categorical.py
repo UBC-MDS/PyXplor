@@ -24,11 +24,8 @@ def plot_categorical(
         List of categorical variables (column names) to be plotted.
 
 
-    fig_width : int
-        Width of the figure. Default is 10.
-
-    fig_height : int
-        Height of the figure. Default is 6.
+    figsize : tuple[int, int]
+        The width and height of the figure size in a tuple.
 
     label_y_offset : int
         Y-axis offset for label positioning. Default is 0.
