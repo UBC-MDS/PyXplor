@@ -1,15 +1,13 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 
 def plot_time_series(input_df: pd.DataFrame, 
-                      date_column: str, 
-                      value_columns: list, 
-                      freq: str = 'D', 
-                      figsize: tuple = (10, 6),
-                      output_path: str = None, 
-                      super_title: str = "Time Series Analysis",
-                      super_title_font: int = 14) -> None:
+                     date_column: str, 
+                     value_columns: list, 
+                     freq: str = 'D', 
+                     figsize: tuple = (10, 6),
+                     output_path: str = None, 
+                     super_title: str = "Time Series Analysis",
+                     super_title_font: int = 14) -> None:
     """Conducts exploratory data analysis on multiple time-series variables and generates line plot visualizations.
 
     This function generates line plots for multiple time series variables specified in value_columns, 
@@ -51,18 +49,13 @@ def plot_time_series(input_df: pd.DataFrame,
 
     Examples
     --------
-    # Example usage of the plot_time_series function
-
-    # Sample DataFrame creation
     dates = pd.date_range(start='2020-01-01', end='2020-12-31', freq='D')
     data = pd.DataFrame({
         'date': dates,
         'sales': np.random.rand(len(dates)) * 100,
         'expenses': np.random.rand(len(dates)) * 50,
     })
-
     plot_time_series(data, 'date', ['sales', 'expenses'], freq='M', figsize=(12, 6))
-
     """
 
     pass  # Implementation to be added
