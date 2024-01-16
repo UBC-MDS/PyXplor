@@ -38,7 +38,7 @@ def plot_numeric(
     label_fontsize : int
         Font size for axis labels.
 
-    figsize: tuple[int, int], optional
+    figsize : tuple[int, int], optional
         The width and height of the figure size in a tuple.
 
     output_path : str, optional
@@ -54,6 +54,11 @@ def plot_numeric(
     -------
     tuple
         A tuple containing the `fig` and `ax` objects.
+
+    Examples
+    --------
+    numeric = ["numeric_var1", "numeric_var2"]
+    plot_numeric(df, numeric, "hist+kde", 30, 10, (10, 15))
     """
     # Get numeric columns from the dataframe
     numeric_columns = input_df.select_dtypes(include=['number']).columns.tolist()
