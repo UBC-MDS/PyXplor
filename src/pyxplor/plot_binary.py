@@ -1,4 +1,7 @@
 import pandas as pd
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def plot_binary(
         input_df: pd.DataFrame,
@@ -75,7 +78,7 @@ def plot_binary(
 
     # Check if list_of variables are all binary
     for var in list_of_variables:
-        unique_values = df[var].unique()
+        unique_values = input_df[var].unique()
         if len(unique_values) != 2 or set(unique_values) - {0, 1}:
             raise ValueError(f"Variable '{var}' is not binary.")
 
