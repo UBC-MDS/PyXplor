@@ -99,7 +99,7 @@ def plot_categorical(
         raise ValueError("super_title must be a string.")
 
     # Check whether super_title_font is a number
-    if not isinstance(super_title_font, (int, float)):
+    if not isinstance(super_title_fontsize, (int, float)):
         raise ValueError("super_title_font must be a number (integer or float).")
 
     # Calculate dimensions of figure (number of rows and columns of sublots)
