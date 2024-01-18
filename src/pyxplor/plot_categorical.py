@@ -124,7 +124,7 @@ def plot_categorical(
         ax[i].set_title(var)
 
     # Add overall Figure title 
-    fig.suptitle(super_title, fontweight="bold", fontsize=super_title_font)
+    fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)
 
     # Configure subplot spacing
     plt.subplots_adjust(hspace=padding)
