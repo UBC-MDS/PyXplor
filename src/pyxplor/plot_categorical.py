@@ -39,7 +39,7 @@ def plot_categorical(
     super_title : str, optional
         Super title for the entire plot. Default is "Distribution of Categorical Variables".
 
-    super_title_font : int, optional
+    super_title_fontsize : int, optional
         Font size for the super title. Default is 14.
 
     padding : float, optional
