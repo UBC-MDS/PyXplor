@@ -10,7 +10,7 @@ def plot_categorical(
         figsize: tuple = (10, 6),
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
-        super_title_font: int = 14,
+        super_title_fontsize: int = 14,
         padding: float=0.5
         ) -> None:
     """Plot the distribution of the categorical variables in a DataFrame, save the plot, and display it.
