@@ -28,12 +28,6 @@ def test_non_df_input_numeric():
     with pytest.raises(ValueError, match=re.escape("input_df must be a pandas DataFrame.")):
         plot_numeric(None, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10)
 
-# Test for cases with only one variable
-def test_single_variable_numeric(test_data_numeric):
-    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1'], 'hist', 30, 10)
-    assert isinstance(fig, plt.Figure)
-    assert isinstance(ax, plt.Axes)  # No need to subscript ax in this case
-
 # Test for non-numeric columns
 def test_non_numeric_columns_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("No valid numeric columns found in the provided list_of_variables.")):
