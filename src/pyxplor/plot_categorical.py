@@ -6,7 +6,7 @@ import seaborn as sns
 def plot_categorical(
         input_df: pd.DataFrame,
         list_of_variables: list,
-        label_fontsize: int=10,
+        label_fontsize: int,
         figsize: tuple = (10, 6),
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
