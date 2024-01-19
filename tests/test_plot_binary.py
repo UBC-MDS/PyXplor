@@ -82,6 +82,11 @@ def test_valid_suptitle_fontsize(test_data):
     with pytest.raises(ValueError, match=re.escape("super_title_font must be a number (integer or float).")):
         plot_binary(test_data, binary_columns, "count", 10, 10, "v", (15, 15), False, "Title", "1")
 
+def test_output_save_binary(test_data):
+    _, _ = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), True)
+    assert os.path.exists("binary_variables.png")
+    os.remove("binary_variables.png")  # Clean up
+
 # test figure
 def test_figure(test_data):
     fig, _ = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), False)
