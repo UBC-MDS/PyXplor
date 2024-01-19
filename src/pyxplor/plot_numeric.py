@@ -60,6 +60,37 @@ def plot_numeric(
     numeric = ["numeric_var1", "numeric_var2"]
     plot_numeric(df, numeric, "hist+kde", 30, 10, (10, 15))
     """
+    # Validate input_df
+    if not isinstance(input_df, pd.DataFrame):
+        raise ValueError("input_df must be a pandas DataFrame.")
+
+    # Validate list_of_variables
+    if not all(var in input_df.columns for var in list_of_variables):
+        missing_vars = [var for var in list_of_variables if var not in input_df.columns]
+        raise ValueError(f"The following variables are not present in the DataFrame: {', '.join(missing_vars)}.")
+
+    # Validate plot_kind
+    valid_plot_kinds = {'hist', 'kde', 'hist+kde'}
+    if plot_kind not in valid_plot_kinds:
+        raise ValueError("Invalid value for 'plot_kind'. It should be either 'hist', 'kde', or 'hist+kde'.")
+
+    # Validate label_y_offset and label_fontsize
+    if not all(isinstance(val, (int, float)) for val in [label_y_offset, label_fontsize]):
+        raise ValueError("label_y_offset and label_fontsize must be numbers (integers or floats).")
+
+    # Validate figsize
+    if not (isinstance(figsize, tuple) and len(figsize) == 2 and
+            all(isinstance(val, (int, float)) for val in figsize)):
+        raise ValueError("figsize must be a tuple of exactly two numbers (integers or floats).")
+
+    # Validate output_path
+    if not isinstance(output_path, str):
+        raise ValueError("output_path must be a string.")
+
+    # Validate super_title_font
+    if not isinstance(super_title_font, (int, float)):
+        raise ValueError("super_title_font must be a number (integer or float).")
+
     # Get numeric columns from the dataframe
     numeric_columns = input_df.select_dtypes(include=['number']).columns.tolist()
 
@@ -68,8 +99,7 @@ def plot_numeric(
 
     # Check if there are any numeric columns to plot
     if not numeric_columns:
-        print("No valid numeric columns found in the provided list_of_variables.")
-        return
+        raise ValueError("No valid numeric columns found in the provided list_of_variables.")
 
     # Calculate the number of rows and columns dynamically
     total_plots = len(numeric_columns)
@@ -93,13 +123,13 @@ def plot_numeric(
             # Add central tendency labels with different colors
             mean = input_df[variable].mean()
             median = input_df[variable].median()
-            mean_label = f'Mean: {mean:.2e}'
-            median_label = f'Median: {median:.2e}'
+            mean_label = f'Mean: {mean:.2e} units'
+            median_label = f'Median: {median:.2e} units'
             ax[i].axvline(mean, color='orange', linestyle='dashed', linewidth=2, label=mean_label)
             ax[i].axvline(median, color='red', linestyle='dashed', linewidth=2, label=median_label)
 
-            # Add legend in the top right corner
-            ax[i].legend(loc='upper right')
+            # Add legend outside the subplots
+            ax[i].legend(loc='upper right', bbox_to_anchor=(1.1, 1.05))
 
         ax[i].set_title(variable)  # Set subplot title
 
@@ -112,8 +142,3 @@ def plot_numeric(
     plt.show()
 
     return fig, ax
-
-# Example usage:
-# numeric = ["numeric_var1", "numeric_var2"]
-numeric = ["runtime", "budget", "revenue", "vote_average"]
-fig, ax = plot_numeric(df, numeric, "hist+kde", 30, 10, (8, 10), "numeric_distribution.png", "Distribution of Numeric Variables", 14)
