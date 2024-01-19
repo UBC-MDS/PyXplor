@@ -1,6 +1,8 @@
 import pytest
 import pandas as pd
 import numpy as np
+import re
+
 from plot_time_series import plot_time_series
 
 @pytest.fixture
@@ -37,6 +39,5 @@ def test_non_numeric_value_column(sample_time_series_data):
         plot_time_series(sample_time_series_data, 'date', ['non_numeric'], freq='M')
 
 def test_invalid_frequency(sample_time_series_data):
-    with pytest.raises(ValueError, match="Invalid frequency 'Y'. Valid options are {'D', 'W', 'M', 'Q', 'A'}."):
+    with pytest.raises(ValueError, match=re.escape("Invalid frequency. Valid options are 'D', 'W', 'M', 'Q', 'A'.")):
         plot_time_series(sample_time_series_data, 'date', ['sales'], freq='Y')
-

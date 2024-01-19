@@ -7,7 +7,7 @@ def plot_time_series(input_df: pd.DataFrame,
                      value_columns: list, 
                      freq: str = 'D', 
                      figsize: tuple = (10, 6),
-                     output_path: str = None, 
+                     output: bool = False, 
                      super_title: str = "Time Series Analysis",
                      super_title_font: int = 14) -> tuple:
     """
@@ -25,8 +25,8 @@ def plot_time_series(input_df: pd.DataFrame,
         Frequency of data aggregation ('D' for daily, 'W' for weekly, etc.). Default is 'D'.
     figsize : tuple[int, int], optional
         Size of the plot as (width, height). Default is (10, 6).
-    output_path : str, optional
-        File path to save the plot. If None, the plot is not saved.
+    output : bool, optional
+        Whether to output the figure to the current working directory. Default is False.
     super_title : str, optional
         Title for the entire plot. Default is "Time Series Analysis".
     super_title_font : int, optional
@@ -48,29 +48,39 @@ def plot_time_series(input_df: pd.DataFrame,
     # Validation checks
     if not isinstance(input_df, pd.DataFrame):
         raise ValueError("Input data must be a pandas DataFrame.")
+    
     if input_df.empty:
         raise ValueError("Input DataFrame is empty.")
+    
     if date_column not in input_df.columns:
         raise ValueError(f"Date column '{date_column}' not found in DataFrame.")
+    
     if not pd.api.types.is_datetime64_any_dtype(input_df[date_column]):
         raise ValueError(f"Date column '{date_column}' must be of datetime type.")
+    
     if not value_columns:
         raise ValueError("List of value columns is empty.")
+    
     for column in value_columns:
         if column not in input_df.columns:
             raise ValueError(f"Value column '{column}' not found in DataFrame.")
         if not pd.api.types.is_numeric_dtype(input_df[column]):
             raise ValueError(f"Column '{column}' must contain numeric data.")
+        
     valid_freqs = {'D', 'W', 'M', 'Q', 'A'}
     if freq not in valid_freqs:
-        raise ValueError(f"Invalid frequency '{freq}'. Valid options are {valid_freqs}.")
+        raise ValueError(f"Invalid frequency. Valid options are 'D', 'W', 'M', 'Q', 'A'.")
+    
     if not (isinstance(figsize, tuple) and len(figsize) == 2 and
             all(isinstance(n, (int, float)) and n > 0 for n in figsize)):
         raise ValueError("figsize must be a tuple of two positive numbers.")
-    if output_path is not None and not isinstance(output_path, str):
-        raise ValueError("output_path must be a string.")
+    
+    if not isinstance(output, bool):
+        raise ValueError("Output must be a bool.")
+    
     if not isinstance(super_title, str):
         raise ValueError("super_title must be a string.")
+    
     if not isinstance(super_title_font, (int, float)):
         raise ValueError("super_title_font must be a number.")
 
@@ -89,8 +99,8 @@ def plot_time_series(input_df: pd.DataFrame,
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
     fig.suptitle(super_title, fontsize=super_title_font)
 
-    if output_path:
-        plt.savefig(output_path)
+    if output:
+        plt.savefig("timeseries_variables.png")
 
     # plt.show()
 
