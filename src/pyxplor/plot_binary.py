@@ -125,7 +125,8 @@ def plot_binary(
 
     # Instantiate fig and ax
     fig, ax = plt.subplots(rows, cols, figsize=figsize)
-    ax = ax.flatten()
+    if len(list_of_variables) > 1:
+        ax = ax.flatten()
 
     # Plot the variables
     for i, variable in enumerate(list_of_variables):
@@ -166,7 +167,7 @@ def plot_binary(
                     )
 
             # Add subplot titles
-            ax[i].set_title('Distribution of {}'.format(variable))
+            ax[i].set_title(variable)
             
 
         # Pie charts

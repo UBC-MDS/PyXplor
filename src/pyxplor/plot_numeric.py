@@ -10,7 +10,7 @@ def plot_numeric(
         label_y_offset: int,
         label_fontsize: int,
         figsize: tuple = (8, 10),
-        output_path: str = "numeric_distribution.png",
+        output: bool = False,
         super_title: str = "Distribution of Numeric Variables",
         super_title_font: int = 14) -> tuple:
     """Plot the distribution of numeric variables in a DataFrame, save the plot, and display it.
@@ -41,8 +41,8 @@ def plot_numeric(
     figsize : tuple[int, int], optional
         The width and height of the figure size in a tuple.
 
-    output_path : str, optional
-        Path to save the plot. Defaults to "numeric_distribution.png".
+    output : bool, optional
+        Whether to output the figure to the current working directory.
 
     super_title : str, optional
         Super title for the entire plot. Default is "Distribution of Numeric Variables".
@@ -83,9 +83,9 @@ def plot_numeric(
             all(isinstance(val, (int, float)) for val in figsize)):
         raise ValueError("figsize must be a tuple of exactly two numbers (integers or floats).")
 
-    # Validate output_path
-    if not isinstance(output_path, str):
-        raise ValueError("output_path must be a string.")
+    # Validate output
+    if not isinstance(output, bool):
+        raise ValueError("Output must be a boolean value.")
 
     # Validate super_title_font
     if not isinstance(super_title_font, (int, float)):
@@ -108,7 +108,9 @@ def plot_numeric(
 
     # Create subplots in a grid
     fig, ax = plt.subplots(rows, cols, figsize=figsize)
-    ax = ax.flatten()
+    if len(list_of_variables) > 1:
+        ax = ax.flatten()
+
 
     # Loop through numeric columns and plot
     for i, variable in enumerate(numeric_columns):
@@ -138,7 +140,10 @@ def plot_numeric(
 
     # Adjust layout and save the figure
     plt.tight_layout(rect=[0, 0, 1, 0.96])  # Adjust rect to make space for super title
-    plt.savefig(output_path)
+    
+    if output:
+        plt.savefig("numeric_variables.png")
+        
     plt.show()
 
     return fig, ax
