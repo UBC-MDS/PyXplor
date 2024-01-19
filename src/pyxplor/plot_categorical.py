@@ -52,7 +52,7 @@ def plot_categorical(
         Returns the Figure object representing the top level container for all of the
         plot elements. Figure will be shown as output of calling the function.
 
-    matplotlib Axes object
+    np.ndarray of matplotlib Axes objects
         Returns the (array-like) Axes object where each element is a subplot. 
 
     Examples
