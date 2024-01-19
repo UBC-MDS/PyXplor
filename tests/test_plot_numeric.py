@@ -28,10 +28,33 @@ def test_non_df_input_numeric():
     with pytest.raises(ValueError, match=re.escape("input_df must be a pandas DataFrame.")):
         plot_numeric(None, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10)
 
+# Test for non-numeric columns
+def test_non_numeric_columns_numeric(test_data_numeric):
+    with pytest.raises(ValueError, match=re.escape("No valid numeric columns found in the provided list_of_variables.")):
+        plot_numeric(test_data_numeric, ['non_numeric_var'], 'hist', 30, 10)
+
+# Test case where there are no numeric variables
+def test_no_numeric_variables_numeric(test_data_numeric):
+    with pytest.raises(ValueError, match=re.escape("No valid numeric columns found in the provided list_of_variables.")):
+        plot_numeric(test_data_numeric, ['non_numeric_var'], 'hist', 30, 10)
+
 # Test empty list of variables
 def test_empty_list_of_variables_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("list_of_variables cannot be an empty list.")):
         plot_numeric(test_data_numeric, [], 'hist', 30, 10)
+
+# Test for larger dataset
+def test_large_dataset_numeric():
+    # Generate a larger dataset for testing
+    data_large = {
+        'numeric_var1': np.random.normal(0, 1, 1000),
+        'numeric_var2': np.random.normal(5, 2, 1000),
+    }
+    df_large = pd.DataFrame(data_large)
+    
+    fig, ax = plot_numeric(df_large, ['numeric_var1', 'numeric_var2'], 'hist+kde', 30, 10)
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
 
 # Test variable not in the dataframe
 def test_var_not_in_input_df_numeric(test_data_numeric):
@@ -52,6 +75,20 @@ def test_non_numeric_label_y_offset_numeric(test_data_numeric):
 def test_non_tuple_figsize_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("figsize must be a tuple of exactly two numbers (integers or floats).")):
         plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, figsize=[10, 6])
+
+# Test for 'hist' and 'kde' without 'hist+kde'
+def test_plot_kind_without_kde_numeric(test_data_numeric):
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10)
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
+
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'kde', 30, 10)
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
+
+# Test correctness of the plots
+def test_plot_correctness_numeric(test_data_numeric):
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist+kde', 30, 10)
 
 # Test non-string output_path
 def test_non_string_output_path_numeric(test_data_numeric):
@@ -79,4 +116,4 @@ def test_output_save_numeric(test_data_numeric, tmp_path):
     plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, (8, 6), output=True)
     assert os.path.exists("numeric_variables.png")
     os.remove("numeric_variables.png")  # Clean up
-
+    
