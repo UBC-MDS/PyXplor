@@ -108,7 +108,9 @@ def plot_numeric(
 
     # Create subplots in a grid
     fig, ax = plt.subplots(rows, cols, figsize=figsize)
-    ax = ax.flatten()
+    if len(list_of_variables) > 1:
+        ax = ax.flatten()
+
 
     # Loop through numeric columns and plot
     for i, variable in enumerate(numeric_columns):

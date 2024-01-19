@@ -125,7 +125,8 @@ def plot_binary(
 
     # Instantiate fig and ax
     fig, ax = plt.subplots(rows, cols, figsize=figsize)
-    ax = ax.flatten()
+    if len(list_of_variables) > 1:
+        ax = ax.flatten()
 
     # Plot the variables
     for i, variable in enumerate(list_of_variables):
