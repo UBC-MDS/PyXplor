@@ -166,7 +166,7 @@ def plot_binary(
                     )
 
             # Add subplot titles
-            ax[i].set_title('Distribution of {}'.format(variable))
+            ax[i].set_title(variable)
             
 
         # Pie charts
