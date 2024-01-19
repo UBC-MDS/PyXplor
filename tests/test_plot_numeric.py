@@ -6,6 +6,7 @@ import sys
 import os
 import math
 import pytest
+import re
 
 # Import the plot_numeric function from the src/pyxplor folder
 sys.path.append(os.path.join(os.path.dirname(__file__), '../src/pyxplor'))
@@ -30,7 +31,7 @@ def test_non_df_input_numeric():
 # Test empty list of variables
 def test_empty_list_of_variables_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("list_of_variables cannot be an empty list.")):
-        plot_numeric(test_data_numeric, [])
+        plot_numeric(test_data_numeric, [], 'hist', 30, 10)
 
 # Test variable not in the dataframe
 def test_var_not_in_input_df_numeric(test_data_numeric):
@@ -54,8 +55,8 @@ def test_non_tuple_figsize_numeric(test_data_numeric):
 
 # Test non-string output_path
 def test_non_string_output_path_numeric(test_data_numeric):
-    with pytest.raises(ValueError, match=re.escape("output_path must be a string.")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, output_path=123)
+    with pytest.raises(ValueError, match=re.escape("Output must be a boolean value.")):
+        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, output=123)
 
 # Test non-numeric super_title_font
 def test_non_numeric_super_title_font_numeric(test_data_numeric):
@@ -75,7 +76,7 @@ def test_plot_numeric_return(test_data_numeric):
 # Test saved output (output_path specified)
 def test_output_save_numeric(test_data_numeric, tmp_path):
     output_path = os.path.join(tmp_path, 'numeric_distribution.png')
-    plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, (8, 6), output_path=output_path)
-    assert os.path.exists(output_path)
-    os.remove(output_path)  # Clean up
+    plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, (8, 6), output=True)
+    assert os.path.exists("numeric_variables.png")
+    os.remove("numeric_variables.png")  # Clean up
 

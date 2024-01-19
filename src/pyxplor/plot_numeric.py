@@ -68,6 +68,9 @@ def plot_numeric(
     if not all(var in input_df.columns for var in list_of_variables):
         missing_vars = [var for var in list_of_variables if var not in input_df.columns]
         raise ValueError(f"The following variables are not present in the DataFrame: {', '.join(missing_vars)}.")
+    
+    if len(list_of_variables) == 0:
+        raise ValueError("list_of_variables cannot be an empty list.")
 
     # Validate plot_kind
     valid_plot_kinds = {'hist', 'kde', 'hist+kde'}
@@ -144,6 +147,6 @@ def plot_numeric(
     if output:
         plt.savefig("numeric_variables.png")
         
-    plt.show()
+    # plt.show()
 
     return fig, ax

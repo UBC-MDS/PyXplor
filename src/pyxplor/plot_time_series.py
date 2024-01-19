@@ -92,6 +92,6 @@ def plot_time_series(input_df: pd.DataFrame,
     if output_path:
         plt.savefig(output_path)
 
-    plt.show()
+    # plt.show()
 
     return fig, axes

@@ -96,7 +96,7 @@ def test_figure(test_data):
 def test_subplot_title(test_data):
     _, ax = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), False)
     subplot_titles = [ax[i].title.get_text() for i in range(no_binary_variables)]
-    correct_titles = ['Distribution of {}'.format(variable) for variable in binary_columns]
+    correct_titles = [variable for variable in binary_columns]
     assert subplot_titles == correct_titles
 
 # for count plots

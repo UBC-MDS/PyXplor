@@ -6,7 +6,7 @@ import seaborn as sns
 def plot_categorical(
         input_df: pd.DataFrame,
         list_of_variables: list,
-        label_fontsize: int,
+        label_fontsize: int = 10,
         figsize: tuple = (10, 6),
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
@@ -100,7 +100,7 @@ def plot_categorical(
 
     # Check whether super_title_font is a number
     if not isinstance(super_title_fontsize, (int, float)):
-        raise ValueError("super_title_font must be a number (integer or float).")
+        raise ValueError("super_title_fontsize must be a number (integer or float).")
 
     # Calculate dimensions of figure (number of rows and columns of sublots)
     total_plots = len(list_of_variables)
@@ -134,6 +134,6 @@ def plot_categorical(
         plt.savefig("categorical_variables.png")
 
     # Display plot
-    plt.show()
+    # plt.show()
 
     return fig, ax

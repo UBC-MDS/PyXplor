@@ -200,6 +200,6 @@ def plot_binary(
     if output:
         plt.savefig("binary_variables.png")
 
-    plt.show()
+    # plt.show()
 
     return fig, ax
