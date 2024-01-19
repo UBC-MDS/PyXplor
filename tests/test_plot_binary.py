@@ -75,16 +75,16 @@ def test_valid_output(test_data):
 # test valid input supertitle
 def test_valid_suptitle(test_data):
     with pytest.raises(ValueError, match=re.escape("super_title must be a string.")):
-        plot_binary(test_data, binary_columns, "count", 10, 10, "v", (15, 15), True, 123)
+        plot_binary(test_data, binary_columns, "count", 10, 10, "v", (15, 15), False, 123)
 
 # test valid input supertitle fontsize
 def test_valid_suptitle_fontsize(test_data):
     with pytest.raises(ValueError, match=re.escape("super_title_font must be a number (integer or float).")):
-        plot_binary(test_data, binary_columns, "count", 10, 10, "v", (15, 15), True, "Title", "1")
+        plot_binary(test_data, binary_columns, "count", 10, 10, "v", (15, 15), False, "Title", "1")
 
 # test figure
 def test_figure(test_data):
-    fig, _ = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), True)
+    fig, _ = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), False)
     # test supertitle
     assert fig._suptitle.get_text() == "Distribution of Binary Variables"
     # test number of axes
@@ -94,7 +94,7 @@ def test_figure(test_data):
 
 # test subplot titles
 def test_subplot_title(test_data):
-    _, ax = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), True)
+    _, ax = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), False)
     subplot_titles = [ax[i].title.get_text() for i in range(no_binary_variables)]
     correct_titles = ['Distribution of {}'.format(variable) for variable in binary_columns]
     assert subplot_titles == correct_titles
@@ -102,27 +102,27 @@ def test_subplot_title(test_data):
 # for count plots
 def test_number_of_bars(test_data):
     # check number of bars for horizontal orientation
-    _, ax_h = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), True)
+    _, ax_h = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), False)
     assert [len(ax_h[i].get_yticks()) for i in range(no_binary_variables)] == [2 for _ in range(no_binary_variables)]
     # check number of bars for vertical orientation
-    _, ax_v = plot_binary(test_data, binary_columns, "count", 10, 10, "v", (6, 6), True)
+    _, ax_v = plot_binary(test_data, binary_columns, "count", 10, 10, "v", (6, 6), False)
     assert [len(ax_v[i].get_xticks()) for i in range(no_binary_variables)] == [2 for _ in range(no_binary_variables)]
 
 # test count annotations
 def test_count_annotations(test_data):
-    _, ax = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), True)
+    _, ax = plot_binary(test_data, binary_columns, "count", 10, 10, "h", (6, 6), False)
     for i, variable in enumerate(binary_columns):
         assert sorted(list(test_data[variable].value_counts())) == sorted([int(text.get_text()) for text in ax[i].texts])
 
 # for pie charts
 def test_number_of_wedges(test_data):
     # check the number of wedges for pie charts
-    _, ax = plot_binary(test_data, binary_columns, "pie", 10, 10, "h", (6, 6), True)
+    _, ax = plot_binary(test_data, binary_columns, "pie", 10, 10, "h", (6, 6), False)
     assert [len(ax[i].patches) for i in range(no_binary_variables)] == [2 for _ in range(no_binary_variables)]
 
 # test pie annotations
 def test_pie_annotations(test_data):
-    _, ax = plot_binary(test_data, binary_columns, "pie", 10, 10, "h", (6, 6), True)
+    _, ax = plot_binary(test_data, binary_columns, "pie", 10, 10, "h", (6, 6), False)
 
     # go through each variable
     for i, variable in enumerate(binary_columns):
