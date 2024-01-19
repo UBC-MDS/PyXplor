@@ -9,7 +9,7 @@ def plot_time_series(input_df: pd.DataFrame,
                      figsize: tuple = (10, 6),
                      output_path: str = None, 
                      super_title: str = "Time Series Analysis",
-                     super_title_font: int = 14) -> None:
+                     super_title_font: int = 14) -> tuple:
     """
     Generates line plot visualizations for multiple time-series variables in a DataFrame.
 
@@ -44,7 +44,15 @@ def plot_time_series(input_df: pd.DataFrame,
 
     Returns
     -------
-    None
+    fig : matplotlib.figure.Figure
+        The matplotlib Figure object.
+    ax : matplotlib.axes.Axes or array of Axes
+        The matplotlib Axes object(s).
+
+    Raises
+    ------
+    ValueError
+        If input validations fail.
     """
 
     if not isinstance(input_df, pd.DataFrame):
@@ -71,10 +79,11 @@ def plot_time_series(input_df: pd.DataFrame,
         axes[i, 0].set_ylabel("Values")
 
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
-    fig.suptitle(super_title + ' - Frequency: ' + freq, fontsize=super_title_font)
+    fig.suptitle(super_title, fontsize=super_title_font)
 
     if output_path:
         plt.savefig(output_path)
 
     plt.show()
 
+    return fig, axes
