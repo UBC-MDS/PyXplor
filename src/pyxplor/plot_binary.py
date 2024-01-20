@@ -7,8 +7,8 @@ def plot_binary(
         input_df: pd.DataFrame,
         list_of_variables: list,
         plot_kind: str,
-        label_offset: int,
-        label_fontsize: int,
+        label_offset: int = 10,
+        label_fontsize: int = 10,
         plot_orientation: str = "h",
         figsize: tuple = (10, 6),
         output: bool = False,
@@ -31,22 +31,22 @@ def plot_binary(
     plot_kind : {'count', 'pie'}
         Type of plot to be generated, a count plot or a pie chart.
 
-    label_offset : int
-        Offset for label positioning.
+    label_offset : int, optional
+        Offset for label positioning. Default is 10.
         X-axis offset if orientation is horizontal.
         Y-axis offset if orientation is vertical.
 
-    label_fontsize : int
-        Font size for axis labels.
+    label_fontsize : int, optional
+        Font size for axis labels. Default is 10.
 
     plot_orientation: {'h', 'v'}, optional
-        The orientation of countplot, which can be either horizontal or vertical.
+        The orientation of countplot, which can be either horizontal or vertical. Default is 'h'.
 
     figsize: tuple[int, int], optional
-        The width and height of the figure size in a tuple.
+        The width and height of the figure size in a tuple. Default is (10, 6).
 
     output : bool, optional
-        Whether to output the figure to the current working directory.
+        Whether to output the figure to the current working directory. Default is False.
 
     super_title : str, optional
         Super title for the entire plot. Default is "Distribution of Binary Variables".
@@ -58,13 +58,14 @@ def plot_binary(
     -------
     fig : matplotlib.figure.Figure
         The matplotlib Figure object.
+        
     ax : matplotlib.axes._subplots.AxesSubplot
         The matplotlib Axes object.
         
     Examples
     --------
     binary = ["binary_var1", "binary_var2"]
-    fig, ax = plot_binary(df, binary, "count", 1, 1, "h", (10, 10), True)
+    fig, ax = plot_binary(df, binary, "count")
     """
 
     # Check input_df is a dataframe
@@ -199,7 +200,5 @@ def plot_binary(
     # Save figure into current working directory if output is True
     if output:
         plt.savefig("binary_variables.png")
-
-    # plt.show()
 
     return fig, ax

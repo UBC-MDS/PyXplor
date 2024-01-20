@@ -54,7 +54,8 @@ def test_invalid_figsize(sample_time_series_data):
 
 def test_output_path_generation(sample_time_series_data, tmp_path):
     fig, ax = plot_time_series(sample_time_series_data, 'date', ['sales'], output=True)
-    assert fig is not None
+    assert os.path.exists("timeseries_variables.png")
+    os.remove("timeseries_variables.png")  # Clean up
 
 def test_invalid_super_title(sample_time_series_data):
     with pytest.raises(ValueError, match="super_title must be a string."):
