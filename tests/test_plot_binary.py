@@ -6,9 +6,7 @@ import sys
 import os
 import re
 
-# Import the plot_binary function from the src/pyxplor folder
-sys.path.append(os.path.join(os.path.dirname(__file__), '../src/pyxplor'))
-from plot_binary import plot_binary
+from pyxplor.plot_binary import plot_binary
 
 # Test Data
 @pytest.fixture

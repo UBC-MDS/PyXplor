@@ -8,9 +8,7 @@ import math
 import pytest
 import re
 
-# Import the plot_numeric function from the src/pyxplor folder
-sys.path.append(os.path.join(os.path.dirname(__file__), '../src/pyxplor'))
-from plot_numeric import plot_numeric
+from pyxplor.plot_numeric import plot_numeric
 
 # Set up test data
 @pytest.fixture
