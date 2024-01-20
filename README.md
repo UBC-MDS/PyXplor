@@ -10,7 +10,10 @@ A package for simplifying the EDA of different data types!
 
 Note that the package is still under development.
 
-- create an environment with conda (then activate the environment conda activate <env-name>)
+1. Create an environment with conda  and then activate the environment.
+```bash
+conda create -n pyxplor
+conda activate pyxplor
 - Install poetry inside the environment (conda install poetry)
 - Run poetry install
 - Then you can test it with pytest tests
