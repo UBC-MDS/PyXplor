@@ -14,7 +14,8 @@ Note that the package is still under development.
 ```bash
 conda create -n pyxplor
 conda activate pyxplor
-
+2. Install poetry inside the environment.
+3. Run `poetry install`.
 ```bash
 $ pip install pyxplor
 ```
