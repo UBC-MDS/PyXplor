@@ -17,7 +17,7 @@ def test_data():
         'Categorical_Variable_1': np.random.choice(['A', 'B', 'C'], size=100),
         'Categorical_Variable_2': np.random.choice(['X', 'Y', 'Z'], size=100),
         'Categorical_Variable_3': np.random.choice(['Apple', 'Banana', 'Orange'], size=100),
-        'Binary_Variable_4': np.random.choice([0, 1], size=100)
+        'Incorrect_Categorical_Variable_4': np.arange(100)
     }
     return pd.DataFrame(data)
 
@@ -35,6 +35,19 @@ def test_empty_list_of_variables(test_data):
 def test_var_not_in_input_df(test_data):
     with pytest.raises(ValueError, match=re.escape("The following variables are not present in the DataFrame:")):
         plot_categorical(test_data, ['Categorical_Variable_1', 'Random_Variable'])
+
+# Test variable selection
+def test_variable_selection(test_data, capsys):
+    list_of_variables = test_data.columns.tolist()
+    selected_cols = [col for col in list_of_variables if test_data[col].nunique() <= 20]
+    dropped_list = [col for col in list_of_variables if col not in selected_cols]
+    plot_categorical(test_data, list_of_variables)
+    captured = capsys.readouterr()
+    expected_output = (
+        "Only displaying plots for categorical variables with 20 or less unique values.\n"
+        f"Dropping the following variables for plotting: {', '.join(dropped_list)}\n"
+    )
+    assert captured.out == expected_output
 
 # Test valid label fontsize
 def test_non_numeric_label_fontsize(test_data):
@@ -73,7 +86,13 @@ def test_plot_categorical_return(test_data):
 
 # Test subplot titles
 def test_subplot_title(test_data):
-    _, ax = plot_categorical(test_data, test_data.columns.to_list())
-    subplot_titles = [ax[i].title.get_text() for i in range(len(test_data.columns.to_list()))]
-    correct_titles = ['{}'.format(variable) for variable in test_data.columns.to_list()]
+    _, ax = plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2', 'Categorical_Variable_3'])
+    subplot_titles = [ax[i].title.get_text() for i in range(3)]
+    correct_titles = ['{}'.format(variable) for variable in ['Categorical_Variable_1', 'Categorical_Variable_2', 'Categorical_Variable_3']]
     assert subplot_titles == correct_titles
+
+# Test saving output when flag is True
+def test_output_save_categorical(test_data):
+    _, _ = plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], output=True)
+    assert os.path.exists("categorical_variables.png")
+    os.remove("categorical_variables.png")  # Clean up
