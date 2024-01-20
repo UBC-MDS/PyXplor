@@ -10,7 +10,6 @@ A package for simplifying the EDA of different data types!
 
 Note that the package is still under development.
 
-For testing environment: 
 - create an environment with conda (then activate the environment conda activate <env-name>)
 - Install poetry inside the environment (conda install poetry)
 - Run poetry install
