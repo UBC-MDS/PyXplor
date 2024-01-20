@@ -73,3 +73,16 @@ def test_invalid_super_title_font(sample_time_series_data):
     with pytest.raises(ValueError, match="super_title_font must be a number."):
         plot_time_series(sample_time_series_data, 'date', ['sales'], super_title_font='large')
 
+def test_non_dataframe_input():
+    non_df_input = "This is not a DataFrame"
+    with pytest.raises(ValueError, match="Input data must be a pandas DataFrame."):
+        plot_time_series(non_df_input, 'date', ['sales'], freq='M')
+
+def test_empty_value_columns(sample_time_series_data):
+    with pytest.raises(ValueError, match="List of value columns is empty."):
+        plot_time_series(sample_time_series_data, 'date', [], freq='M')
+
+def test_invalid_output_type(sample_time_series_data):
+    with pytest.raises(ValueError, match="Output must be a bool."):
+        plot_time_series(sample_time_series_data, 'date', ['sales'], output="not_a_bool")
+
