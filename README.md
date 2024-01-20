@@ -10,20 +10,27 @@ A package for simplifying the EDA of different data types!
 
 Note that the package is still under development.
 
-1. Create an environment with conda and then activate the environment.
+1. Clone the repository.
+
+```bash
+git clone https://github.com/UBC-MDS/PyXplor.git
+cd pyxplor
+```
+
+2. Create an environment with conda and then activate the environment.
 
 ```bash
 conda create -n pyxplor python=3.11 -y
 conda activate pyxplor
 ```
 
-2. Install poetry inside the environment.
+3. Install poetry inside the environment.
 
 ```bash
 conda install poetry
 ```
 
-3. Run `poetry install`.
+4. Run `poetry install`.
 
 ```bash
 poetry install
