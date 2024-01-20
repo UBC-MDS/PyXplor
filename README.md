@@ -8,7 +8,7 @@ A package for simplifying the EDA of different data types!
 
 ## Installation (developers)
 
-Note that the package isn't complete yet.
+Note that the package is still under development.
 
 For testing environment: 
 - create an environment with conda (then activate the environment conda activate <env-name>)
