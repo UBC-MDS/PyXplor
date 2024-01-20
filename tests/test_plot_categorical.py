@@ -6,12 +6,9 @@ import seaborn as sns
 import sys
 import os
 import re
-
 import pytest
 
-# Import the plot_categorical function from the src/pyxplor folder
-sys.path.append(os.path.join(os.path.dirname(__file__), '../src/pyxplor'))
-from plot_categorical import plot_categorical
+from pyxplor.plot_categorical import plot_categorical
 
 # Set up test data
 @pytest.fixture

@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import re
 
-from plot_time_series import plot_time_series
+from pyxplor.plot_time_series import plot_time_series
 
 @pytest.fixture
 def sample_time_series_data():
