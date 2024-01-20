@@ -1,61 +1,107 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
 
 def plot_time_series(input_df: pd.DataFrame, 
                      date_column: str, 
                      value_columns: list, 
                      freq: str = 'D', 
                      figsize: tuple = (10, 6),
-                     output_path: str = None, 
+                     output: bool = False, 
                      super_title: str = "Time Series Analysis",
-                     super_title_font: int = 14) -> None:
-    """Conducts exploratory data analysis on multiple time-series variables and generates line plot visualizations.
-
-    This function generates line plots for multiple time series variables specified in value_columns, 
-    each aggregated at a given frequency. It creates a single figure with subplots for each variable, 
-    allowing for easy comparison of trends, seasonality, and other time-series characteristics. 
-    The function also offers the option to save and display the resulting figure.
+                     super_title_font: int = 14) -> tuple:
+    """
+    Generates line plot visualizations for multiple time-series variables in a DataFrame.
 
     Parameters
     ----------
     input_df : pd.DataFrame
-        The DataFrame containing the time-series data. Expected to have at least two columns: 
-        one for dates and others for numeric values.
-        
+        DataFrame containing the time-series data with date and numeric columns.
     date_column : str
-        The name of the column in `input_df` that contains date/time information. 
-        This column should be convertible to pandas datetime format.
-
+        Name of the column containing date/time information in datetime format.
     value_columns : list
-        A list of names of the columns in `input_df` that contain the numeric values to be analyzed.
-
-    freq : {"D", "W", "M"}, optional
-        The frequency of the time-series data ('D' for daily, 'W' for weekly, etc.). Default is 'D'.
-
+        List of column names containing numeric values to plot as time series.
+    freq : str, optional
+        Frequency of data aggregation ('D' for daily, 'W' for weekly, etc.). Default is 'D'.
     figsize : tuple[int, int], optional
-        The size of the plot in the format (width, height). Default is (10, 6).
-
-    output_path : str, optional
-        Path to save the plot. Defaults to the current working directory.
-
+        Size of the plot as (width, height). Default is (10, 6).
+    output : bool, optional
+        Whether to output the figure to the current working directory. Default is False.
     super_title : str, optional
-        Super title for the entire plot. Default is "Time Series Analysis".
-
+        Title for the entire plot. Default is "Time Series Analysis".
     super_title_font : int, optional
         Font size for the super title. Default is 14.
 
     Returns
     -------
-    None
+    fig : matplotlib.figure.Figure
+        The matplotlib Figure object.
+    ax : matplotlib.axes.Axes or array of Axes
+        The matplotlib Axes object(s).
 
-    Examples
-    --------
-    dates = pd.date_range(start='2020-01-01', end='2020-12-31', freq='D')
-    data = pd.DataFrame({
-        'date': dates,
-        'sales': np.random.rand(len(dates)) * 100,
-        'expenses': np.random.rand(len(dates)) * 50,
-    })
-    plot_time_series(data, 'date', ['sales', 'expenses'], freq='M', figsize=(12, 6))
+    Raises
+    ------
+    ValueError
+        If input validations fail.
     """
 
-    pass  # Implementation to be added
+    # Validation checks
+    if not isinstance(input_df, pd.DataFrame):
+        raise ValueError("Input data must be a pandas DataFrame.")
+    
+    if input_df.empty:
+        raise ValueError("Input DataFrame is empty.")
+    
+    if date_column not in input_df.columns:
+        raise ValueError(f"Date column '{date_column}' not found in DataFrame.")
+    
+    if not pd.api.types.is_datetime64_any_dtype(input_df[date_column]):
+        raise ValueError(f"Date column '{date_column}' must be of datetime type.")
+    
+    if not value_columns:
+        raise ValueError("List of value columns is empty.")
+    
+    for column in value_columns:
+        if column not in input_df.columns:
+            raise ValueError(f"Value column '{column}' not found in DataFrame.")
+        if not pd.api.types.is_numeric_dtype(input_df[column]):
+            raise ValueError(f"Column '{column}' must contain numeric data.")
+        
+    valid_freqs = {'D', 'W', 'M', 'Q', 'A'}
+    if freq not in valid_freqs:
+        raise ValueError(f"Invalid frequency. Valid options are 'D', 'W', 'M', 'Q', 'A'.")
+    
+    if not (isinstance(figsize, tuple) and len(figsize) == 2 and
+            all(isinstance(n, (int, float)) and n > 0 for n in figsize)):
+        raise ValueError("figsize must be a tuple of two positive numbers.")
+    
+    if not isinstance(output, bool):
+        raise ValueError("Output must be a bool.")
+    
+    if not isinstance(super_title, str):
+        raise ValueError("super_title must be a string.")
+    
+    if not isinstance(super_title_font, (int, float)):
+        raise ValueError("super_title_font must be a number.")
+
+    # Plotting logic
+    input_df[date_column] = pd.to_datetime(input_df[date_column])
+    num_plots = len(value_columns)
+    fig, axes = plt.subplots(num_plots, 1, figsize=figsize, squeeze=False)
+
+    for i, column in enumerate(value_columns):
+        ts_data = input_df.set_index(date_column).resample(freq)[column].mean()
+        axes[i, 0].plot(ts_data)
+        axes[i, 0].set_title(column)
+        axes[i, 0].set_xlabel("Date")
+        axes[i, 0].set_ylabel("Values")
+
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    fig.suptitle(super_title, fontsize=super_title_font)
+
+    if output:
+        plt.savefig("timeseries_variables.png")
+
+    # plt.show()
+
+    return fig, axes

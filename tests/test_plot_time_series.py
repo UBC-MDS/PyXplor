@@ -1,7 +1,10 @@
 import pytest
 import pandas as pd
 import numpy as np
-from plot_time_series import plot_time_series
+import re
+import os
+
+from pyxplor.plot_time_series import plot_time_series
 
 @pytest.fixture
 def sample_time_series_data():
@@ -37,7 +40,7 @@ def test_non_numeric_value_column(sample_time_series_data):
         plot_time_series(sample_time_series_data, 'date', ['non_numeric'], freq='M')
 
 def test_invalid_frequency(sample_time_series_data):
-    with pytest.raises(ValueError, match="Invalid frequency 'Y'. Valid options are {'D', 'W', 'M', 'Q', 'A'}."):
+    with pytest.raises(ValueError, match=re.escape("Invalid frequency. Valid options are 'D', 'W', 'M', 'Q', 'A'.")):
         plot_time_series(sample_time_series_data, 'date', ['sales'], freq='Y')
         
 def test_non_datetime_date_column(sample_time_series_data):
@@ -57,7 +60,6 @@ def test_invalid_super_title(sample_time_series_data):
     with pytest.raises(ValueError, match="super_title must be a string."):
         plot_time_series(sample_time_series_data, 'date', ['sales'], super_title=123)
 
-import os
 def test_output_path_generation(sample_time_series_data, tmp_path):
     output_file = tmp_path / "output_plot.png"
     plot_time_series(sample_time_series_data, 'date', ['sales'], output_path=str(output_file))
