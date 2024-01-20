@@ -6,8 +6,16 @@ A package for simplifying the EDA of different data types!
 
 `pyxplor` is a comprehensive Python package designed to automate and streamline the Exploratory Data Analysis (EDA) process. Tailored for various data types including numeric, categorical, binary, and time series data, `pyxplor` aims to enhance data interpretation through a suite of specialized plotting functions. This package seeks to reduce the complexity and time invested in initial data analysis, making it an essential tool for data scientists and analysts at all levels.
 
-## Installation
+## Installation (developers)
 
+Note that the package is still under development.
+
+1. Create an environment with conda and then activate the environment.
+```bash
+conda create -n pyxplor
+conda activate pyxplor
+2. Install poetry inside the environment.
+3. Run `poetry install`.
 ```bash
 $ pip install pyxplor
 ```
