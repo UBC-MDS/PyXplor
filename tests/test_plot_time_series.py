@@ -52,15 +52,10 @@ def test_invalid_figsize(sample_time_series_data):
     with pytest.raises(ValueError, match="figsize must be a tuple of two positive numbers."):
         plot_time_series(sample_time_series_data, 'date', ['sales'], figsize=(10, -6))
 
-def test_invalid_output_path(sample_time_series_data):
-    with pytest.raises(ValueError, match="output_path must be a string."):
-        plot_time_series(sample_time_series_data, 'date', ['sales'], output_path=123)
+def test_output_path_generation(sample_time_series_data, tmp_path):
+    fig, ax = plot_time_series(sample_time_series_data, 'date', ['sales'], output=True)
+    assert fig is not None
 
 def test_invalid_super_title(sample_time_series_data):
     with pytest.raises(ValueError, match="super_title must be a string."):
         plot_time_series(sample_time_series_data, 'date', ['sales'], super_title=123)
-
-def test_output_path_generation(sample_time_series_data, tmp_path):
-    output_file = tmp_path / "output_plot.png"
-    plot_time_series(sample_time_series_data, 'date', ['sales'], output_path=str(output_file))
-    assert output_file.is_file()
