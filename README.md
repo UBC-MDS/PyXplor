@@ -13,7 +13,7 @@ Note that the package is still under development.
 1. Create an environment with conda and then activate the environment.
 
 ```bash
-conda create -n pyxplor
+conda create -n pyxplor python=3.11 -y
 conda activate pyxplor
 ```
 
@@ -29,6 +29,49 @@ conda install poetry
 poetry install
 ```
 
+## Testing
+
+To test that the functions is working properly, run the commands below from the root directory.
+
+```bash
+pytest tests/
+```
+
+To see the coverage of the tests, run the commands below instead.
+
+```bash
+pytest tests/ --cov
+```
+
+## Usage
+
+The functions in `pyxplor` are very simple to use. Below is a simple demonstration:
+
+```python
+from pyxplor.plot_binary import plot_binary
+from pyxplor.plot_categorical import plot_categorical
+from pyxplor.plot_numeric import plot_numeric
+from pyxplor.plot_time_series import plot_time_series
+
+# a dataframe that contains different types of variables
+data = {
+    'BinaryVariable': binary_variable,
+    'CategoricalVariable': categorical_variable,
+    'NumericVariable': numeric_variable,
+    'DatetimeVariable': datetime_variable
+}
+
+df = pd.DataFrame(data)
+
+binary_variables = ['BinaryVariable']
+categorical_variables = ['CategoricalVariable']
+numeric_variables = ['NumericVariable']
+
+fig, ax = plot_binary(df, binary_variables, "count")
+fig, ax = plot_categorical(df, categorical_variables)
+fig, ax = plot_numeric(df, numeric_variables, "hist+kde")
+fig, ax = plot_time_series(df, "DatetimeVariable", numeric_variables)
+```
 
 ## Functions
 

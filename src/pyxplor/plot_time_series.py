@@ -10,25 +10,34 @@ def plot_time_series(input_df: pd.DataFrame,
                      output: bool = False, 
                      super_title: str = "Time Series Analysis",
                      super_title_font: int = 14) -> tuple:
-    """
-    Generates line plot visualizations for multiple time-series variables in a DataFrame.
+    """Generates line plot visualizations for multiple time-series variables in a DataFrame.
+
+    This function will construct a multiple lineplot of different numerical values over time.
+    The time frequency will be adjustable and the function will return the figure and axes object.
 
     Parameters
     ----------
     input_df : pd.DataFrame
         DataFrame containing the time-series data with date and numeric columns.
+
     date_column : str
         Name of the column containing date/time information in datetime format.
+
     value_columns : list
         List of column names containing numeric values to plot as time series.
+
     freq : str, optional
         Frequency of data aggregation ('D' for daily, 'W' for weekly, etc.). Default is 'D'.
+
     figsize : tuple[int, int], optional
         Size of the plot as (width, height). Default is (10, 6).
+
     output : bool, optional
         Whether to output the figure to the current working directory. Default is False.
+
     super_title : str, optional
         Title for the entire plot. Default is "Time Series Analysis".
+
     super_title_font : int, optional
         Font size for the super title. Default is 14.
 
@@ -36,13 +45,15 @@ def plot_time_series(input_df: pd.DataFrame,
     -------
     fig : matplotlib.figure.Figure
         The matplotlib Figure object.
+        
     ax : matplotlib.axes.Axes or array of Axes
         The matplotlib Axes object(s).
 
-    Raises
-    ------
-    ValueError
-        If input validations fail.
+    Examples
+    --------
+    datetime_variable = df["datetime_variable"]
+    numerical_variables = ["num_var1", "num_var2", "num_var3"]
+    fig, ax = plot_time_series(df, datetime_variable, numerical_variables)
     """
 
     # Validation checks
@@ -101,7 +112,5 @@ def plot_time_series(input_df: pd.DataFrame,
 
     if output:
         plt.savefig("timeseries_variables.png")
-
-    # plt.show()
 
     return fig, axes

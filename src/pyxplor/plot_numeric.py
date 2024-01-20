@@ -7,8 +7,8 @@ def plot_numeric(
         input_df: pd.DataFrame,
         list_of_variables: list,
         plot_kind: str,
-        label_y_offset: int,
-        label_fontsize: int,
+        label_y_offset: int = 10,
+        label_fontsize: int = 10,
         figsize: tuple = (8, 10),
         output: bool = False,
         super_title: str = "Distribution of Numeric Variables",
@@ -32,17 +32,17 @@ def plot_numeric(
         'kde': Kernel density estimate plot only.
         'hist+kde': Histogram with a kernel density estimate plot showing median and mean.
 
-    label_y_offset : int
-        Y-axis offset for label positioning.
+    label_y_offset : int, optional
+        Y-axis offset for label positioning. Default is 10.
 
-    label_fontsize : int
-        Font size for axis labels.
+    label_fontsize : int, optional
+        Font size for axis labels. Default is 10.
 
     figsize : tuple[int, int], optional
-        The width and height of the figure size in a tuple.
+        The width and height of the figure size in a tuple. Default is (8, 10)
 
     output : bool, optional
-        Whether to output the figure to the current working directory.
+        Whether to output the figure to the current working directory. Default is False.
 
     super_title : str, optional
         Super title for the entire plot. Default is "Distribution of Numeric Variables".
@@ -52,13 +52,16 @@ def plot_numeric(
 
     Returns
     -------
-    tuple
-        A tuple containing the `fig` and `ax` objects.
+    fig : matplotlib.figure.Figure
+        The matplotlib Figure object.
+        
+    ax : matplotlib.axes.Axes or array of Axes
+        The matplotlib Axes object(s).
 
     Examples
     --------
     numeric = ["numeric_var1", "numeric_var2"]
-    plot_numeric(df, numeric, "hist+kde", 30, 10, (10, 15))
+    plot_numeric(df, numeric, "hist+kde")
     """
     # Validate input_df
     if not isinstance(input_df, pd.DataFrame):
@@ -146,7 +149,5 @@ def plot_numeric(
     
     if output:
         plt.savefig("numeric_variables.png")
-        
-    # plt.show()
 
     return fig, ax

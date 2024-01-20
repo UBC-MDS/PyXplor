@@ -11,8 +11,7 @@ def plot_categorical(
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
         super_title_fontsize: int = 14,
-        padding: float=0.5
-        ) -> None:
+        padding: float=0.5) -> None:
     """Plot the distribution of the categorical variables in a DataFrame, save the plot, and display it.
 
     This function will construct a set of subplots (all horizontal bar plots)
@@ -34,7 +33,7 @@ def plot_categorical(
         The width and height of the figure size in a tuple. Default is (10, 6).
 
     output : bool, optional
-        Whether to output the figure to the current working directory. Default is False (no saving of figure).
+        Whether to output the figure to the current working directory. Default is False.
         
     super_title : str, optional
         Super title for the entire plot. Default is "Distribution of Categorical Variables".
@@ -43,22 +42,20 @@ def plot_categorical(
         Font size for the super title. Default is 14.
 
     padding : float, optional
-        The height of the padding between subplots, as a fraction of the average Axes height. 
-        Default is (0.5, 2).
+        The height of the padding between subplots, as a fraction of the average Axes height. Default is (0.5).
 
     Returns
     -------
-    matplotlib Figure object
-        Returns the Figure object representing the top level container for all of the
-        plot elements. Figure will be shown as output of calling the function.
-
-    np.ndarray of matplotlib Axes objects
-        Returns the (array-like) Axes object where each element is a subplot. 
+    fig : matplotlib.figure.Figure
+        The matplotlib Figure object.
+        
+    ax : matplotlib.axes._subplots.AxesSubplot
+        The matplotlib Axes object.
 
     Examples
     --------
     categorical = ["cat_var1", "cat_var2", "cat_var3"]
-    plot_categorical(df, categorical)
+    fig, ax = plot_categorical(df, categorical)
     """
     # Check if input is a dataframe
     if not isinstance(input_df, pd.DataFrame):
@@ -132,8 +129,5 @@ def plot_categorical(
     # Save figure into current working directory if output is True
     if output:
         plt.savefig("categorical_variables.png")
-
-    # Display plot
-    # plt.show()
 
     return fig, ax
