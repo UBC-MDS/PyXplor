@@ -11,14 +11,24 @@ A package for simplifying the EDA of different data types!
 Note that the package is still under development.
 
 1. Create an environment with conda and then activate the environment.
+
 ```bash
 conda create -n pyxplor
 conda activate pyxplor
-2. Install poetry inside the environment.
-3. Run `poetry install`.
-```bash
-$ pip install pyxplor
 ```
+
+2. Install poetry inside the environment.
+
+```bash
+conda install poetry
+```
+
+3. Run `poetry install`.
+
+```bash
+poetry install
+```
+
 
 ## Functions
 
