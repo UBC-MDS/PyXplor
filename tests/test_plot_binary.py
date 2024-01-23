@@ -17,11 +17,11 @@ def test_data():
         'Binary_Variable_2': np.random.choice([0, 1], size=num_samples),
         'Binary_Variable_3': np.random.choice([0, 1], size=num_samples),
         'Binary_Variable_4': np.random.choice([0, 1], size=num_samples),
-        'Categorical_Variable_5': np.random.choice([0, 4], size=num_samples),
+        'Categorical_Variable_5': np.random.randint(0, 5, size=num_samples)
     }
     return pd.DataFrame(data)
 
-binary_columns = ["Binary_Variable_1", "Binary_Variable_2", "Binary_Variable_3",]
+binary_columns = ["Binary_Variable_1", "Binary_Variable_2", "Binary_Variable_3"]
 no_binary_variables = len(binary_columns)
 
 # test error raised by invalid input

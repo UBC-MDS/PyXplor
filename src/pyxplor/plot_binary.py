@@ -161,10 +161,10 @@ def plot_binary(
             else:
 
                 if len(list_of_variables) > 1:
-                    sns.countplot(ax=ax[i], y=variable, data=input_df)
+                    sns.countplot(ax=ax[i], x=variable, data=input_df)
                     axes = ax[i]
                 else:
-                    sns.countplot(ax=ax, y=variable, data=input_df)
+                    sns.countplot(ax=ax, x=variable, data=input_df)
                     axes = ax
 
                 # Add vertical labels
