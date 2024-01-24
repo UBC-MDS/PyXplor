@@ -80,7 +80,7 @@ def plot_binary(
     # Check if list_of variables are all binary
     for var in list_of_variables:
         unique_values = input_df[var].unique()
-        if len(unique_values) != 2 or set(unique_values) - {0, 1}:
+        if len(unique_values) != 2:
             raise ValueError(f"Variable '{var}' is not binary.")
 
     # Check plot_kind is either 'count' or 'pie'
@@ -137,11 +137,17 @@ def plot_binary(
             
             # Horizontal Orientation
             if plot_orientation == "h":
-                sns.countplot(ax=ax[i], y=variable, data=input_df)
+
+                if len(list_of_variables) > 1:
+                    sns.countplot(ax=ax[i], y=variable, data=input_df)
+                    axes = ax[i]
+                else:
+                    sns.countplot(ax=ax, y=variable, data=input_df)
+                    axes = ax
 
                 # Add horizontal labels
-                for p in ax[i].patches:
-                    ax[i].annotate(
+                for p in axes.patches:
+                    axes.annotate(
                         int(p.get_width()),
                         (p.get_width(), p.get_y() + p.get_height() / 2.),
                         ha = 'center',
@@ -153,11 +159,17 @@ def plot_binary(
             
             # Vertical Orientation
             else:
-                sns.countplot(ax=ax[i], x=variable, data=input_df)
+
+                if len(list_of_variables) > 1:
+                    sns.countplot(ax=ax[i], x=variable, data=input_df)
+                    axes = ax[i]
+                else:
+                    sns.countplot(ax=ax, x=variable, data=input_df)
+                    axes = ax
 
                 # Add vertical labels
-                for p in ax[i].patches:
-                    ax[i].annotate(
+                for p in axes.patches:
+                    axes.annotate(
                         int(p.get_height()),
                         (p.get_x() + p.get_width() / 2., p.get_height()),
                         ha = 'center',
@@ -168,7 +180,7 @@ def plot_binary(
                     )
 
             # Add subplot titles
-            ax[i].set_title(variable)
+            axes.set_title(variable)
             
 
         # Pie charts
@@ -186,8 +198,13 @@ def plot_binary(
             label_fmt = '{}\n{:.1f}%\n({:d})'
             labels_with_count = [label_fmt.format(labels, percentage, count) for labels, percentage, count in zip(labels, percentages, sizes)]
 
-            ax[i].pie(sizes, labels=labels_with_count, autopct='', startangle=90)  # autopct='' to suppress default percentage labels
-            ax[i].set_title('Distribution of {}'.format(variable))
+            if len(list_of_variables) > 1:
+                axes = ax[i]
+            else:
+                axes = ax
+
+            axes.pie(sizes, labels=labels_with_count, autopct='', startangle=90)  # autopct='' to suppress default percentage labels
+            axes.set_title('Distribution of {}'.format(variable))
 
             # remove subplot bounding box
             plt.axis('off')

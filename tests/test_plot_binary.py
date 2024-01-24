@@ -17,11 +17,12 @@ def test_data():
         'Binary_Variable_2': np.random.choice([0, 1], size=num_samples),
         'Binary_Variable_3': np.random.choice([0, 1], size=num_samples),
         'Binary_Variable_4': np.random.choice([0, 1], size=num_samples),
-        'Categorical_Variable_5': np.random.choice([0, 4], size=num_samples),
+        'Categorical_Variable_5': np.random.randint(0, 5, size=num_samples)
     }
     return pd.DataFrame(data)
 
-binary_columns = ["Binary_Variable_1", "Binary_Variable_2", "Binary_Variable_3",]
+binary_columns = ["Binary_Variable_1", "Binary_Variable_2", "Binary_Variable_3"]
+one_binary_column = ["Binary_Variable_1"]
 no_binary_variables = len(binary_columns)
 
 # test error raised by invalid input
@@ -110,6 +111,12 @@ def test_number_of_bars(test_data):
     # check number of bars for vertical orientation
     _, ax_v = plot_binary(test_data, binary_columns, "count", 10, 10, "v", (6, 6), False)
     assert [len(ax_v[i].get_xticks()) for i in range(no_binary_variables)] == [2 for _ in range(no_binary_variables)]
+    # check number of bars for one binary variable for vertical orientation
+    _, ax_v = plot_binary(test_data, one_binary_column, "count", 10, 10, "v", (6, 6), False)
+    assert [len(ax_v.get_xticks())] == [2 for _ in range(1)]
+    # check number of bars for one binary variable for horizontal orientation
+    _, ax_h = plot_binary(test_data, one_binary_column, "count", 10, 10, "h", (6, 6), False)
+    assert [len(ax_h.get_yticks())] == [2 for _ in range(1)]
 
 # test count annotations
 def test_count_annotations(test_data):
@@ -122,6 +129,9 @@ def test_number_of_wedges(test_data):
     # check the number of wedges for pie charts
     _, ax = plot_binary(test_data, binary_columns, "pie", 10, 10, "h", (6, 6), False)
     assert [len(ax[i].patches) for i in range(no_binary_variables)] == [2 for _ in range(no_binary_variables)]
+    # check the number of wedges for pie charts (one variable)
+    _, ax = plot_binary(test_data, one_binary_column, "pie", 10, 10, "h", (6, 6), False)
+    assert [len(ax.patches)] == [2 for _ in range(1)]
 
 # test pie annotations
 def test_pie_annotations(test_data):
