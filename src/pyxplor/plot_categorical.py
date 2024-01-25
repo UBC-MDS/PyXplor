@@ -12,7 +12,7 @@ def plot_categorical(
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
         super_title_fontsize: int = 14,
-        padding: float=0.5) -> None:
+        padding: tuple = (0.5, 0.5) )-> None:
     """Plot the distribution of the categorical variables in a DataFrame, save the plot, and display it.
 
     This function will construct a set of subplots (all horizontal bar plots)
@@ -42,8 +42,9 @@ def plot_categorical(
     super_title_fontsize : int, optional
         Font size for the super title. Default is 14.
 
-    padding : float, optional
-        The height of the padding between subplots, as a fraction of the average Axes height. Default is (0.5).
+    padding : tuple[hspace: int, wspace: int], optional
+        The horizontal and vertical padding between subplots in a tuple, 
+        as a fraction of the average Axes height. Default is (0.5, 0.5).
 
     Returns
     -------
@@ -100,6 +101,11 @@ def plot_categorical(
     if not isinstance(super_title_fontsize, (int, float)):
         raise ValueError("super_title_fontsize must be a number (integer or float).")
 
+    # Check figsize is a tuple of 2 numbers
+    if not (isinstance(padding, tuple) and len(padding) == 2 and
+            isinstance(padding[0], (int, float)) and isinstance(padding[1], (int, float))):
+        raise ValueError("padding must be a tuple of exactly two numbers (integers or floats).")
+
     # Calculate dimensions of figure (number of rows and columns of sublots)
     total_plots = len(list_of_variables)
     rows = math.ceil(math.sqrt(total_plots))
@@ -139,7 +145,7 @@ def plot_categorical(
     fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)
 
     # Configure subplot spacing
-    plt.subplots_adjust(hspace=padding)
+    plt.subplots_adjust(hspace=padding[0], wspace=padding[1])
 
     # Save figure into current working directory if output is True
     if output:
