@@ -1,6 +1,7 @@
 import pandas as pd
 import math
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FixedLocator
 import seaborn as sns
 
 def plot_categorical(
@@ -121,8 +122,10 @@ def plot_categorical(
             # Add subplot title
             ax[i].set_title(var)
 
-            # Adjust y-axis label font size 
-            ax[i].yticks(fontsize = yaxis_label_fontsize) 
+            # Adjust label font size
+            ax[i].yaxis.set_major_locator(FixedLocator(ax[i].get_yticks()))
+            ax[i].set_yticklabels(ax[i].get_yticklabels(), fontsize=yaxis_label_fontsize)
+
 
     else: # Just one variable provided in list_of_variables
 
@@ -131,9 +134,6 @@ def plot_categorical(
 
         # Add subplot title for single subplot
         ax.set_title(list_of_variables[0])
-
-        # Adjust y-axis label font size 
-        ax.yticks(fontsize = yaxis_label_fontsize) 
 
     # Add overall Figure title 
     fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)
