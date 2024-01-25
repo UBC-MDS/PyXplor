@@ -6,7 +6,7 @@ import seaborn as sns
 def plot_categorical(
         input_df: pd.DataFrame,
         list_of_variables: list,
-        label_fontsize: int = 10,
+        yaxis_label_fontsize: int = 10,
         figsize: tuple = (10, 6),
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
@@ -26,8 +26,8 @@ def plot_categorical(
     list_of_variables : list
         List of categorical variables (column names) to be plotted
 
-    label_fontsize : int, optional
-        Font size for axis labels. Default is 10.
+    yaxis_label_fontsize : int, optional
+        Font size for y-axis tick labels (i.e. categorical values). Default is 10.
 
     figsize : tuple[width: int, height: int], optional
         The width and height of the figure size in a tuple. Default is (10, 6).
@@ -78,9 +78,9 @@ def plot_categorical(
         print(f"Dropping the following variables for plotting: {', '.join(dropped_list)}")
         list_of_variables = selected_cols
     
-    # Check if label_fontsize is a number
-    if not (isinstance(label_fontsize, (int, float))):
-        raise ValueError("label_fontsize must be a number (integers or floats).")
+    # Check if yaxis_label_fontsize is a number
+    if not (isinstance(yaxis_label_fontsize, (int, float))):
+        raise ValueError("yaxis_label_fontsize must be a number (integers or floats).")
     
     # Check figsize is a tuple of 2 numbers
     if not (isinstance(figsize, tuple) and len(figsize) == 2 and
@@ -121,6 +121,9 @@ def plot_categorical(
             # Add subplot title
             ax[i].set_title(var)
 
+            # Adjust y-axis label font size 
+            ax[i].yticks(fontsize = yaxis_label_fontsize) 
+
     else: # Just one variable provided in list_of_variables
 
         #Create Bar Plot for single subplot
@@ -128,6 +131,9 @@ def plot_categorical(
 
         # Add subplot title for single subplot
         ax.set_title(list_of_variables[0])
+
+        # Adjust y-axis label font size 
+        ax.yticks(fontsize = yaxis_label_fontsize) 
 
     # Add overall Figure title 
     fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)

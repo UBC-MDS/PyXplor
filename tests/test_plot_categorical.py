@@ -47,10 +47,10 @@ def test_variable_selection(test_data, capsys):
     )
     assert captured.out == expected_output
 
-# Test valid label fontsize
+# Test valid y-axis label fontsize
 def test_non_numeric_label_fontsize(test_data):
-    with pytest.raises(ValueError, match=re.escape("label_fontsize must be a number (integers or floats).")):
-        plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], label_fontsize="abc")
+    with pytest.raises(ValueError, match=re.escape("yaxis_label_fontsize must be a number (integers or floats).")):
+        plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], yaxis_label_fontsize="abc")
 
 # Test valid figsize
 def test_non_tuple_figsize(test_data):
