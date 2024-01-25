@@ -43,7 +43,7 @@ def plot_categorical(
         Font size for the super title. Default is 14.
 
     padding : tuple[hspace: int, wspace: int], optional
-        The horizontal and vertical padding between subplots in a tuple, 
+        The height and width padding between subplots in a tuple, 
         as a fraction of the average Axes height. Default is (0.5, 0.5).
 
     Returns
