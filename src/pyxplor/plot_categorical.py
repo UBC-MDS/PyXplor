@@ -107,18 +107,27 @@ def plot_categorical(
     # Create Figure object and Axes array
     fig, ax = plt.subplots(rows, cols, figsize=figsize)
 
-    # Flatten Axes array if more than one variable provided for plotting
+    # Case when multiple subplots to be created
     if len(list_of_variables) > 1:
+        # Flatten Axes array if more than one variable provided for plotting
         ax = ax.flatten()
 
-    # Iterate through plotting categorical variables
-    for i, var in enumerate(list_of_variables):  
+        # Iterate through plotting categorical variables
+        for i, var in enumerate(list_of_variables):  
 
-        # Create Bar Plot sublpot for each element in list_of_variables
-        sns.countplot(ax=ax[i], y=var, hue=var, legend=False, data=input_df)
+            # Create Bar Plot sublpot for each element in list_of_variables
+            sns.countplot(ax=ax[i], y=var, hue=var, legend=False, data=input_df)
 
-        # Add subplot title
-        ax[i].set_title(var)
+            # Add subplot title
+            ax[i].set_title(var)
+
+    else: # Just one variable provided in list_of_variables
+
+        #Create Bar Plot for single subplot
+        sns.countplot(ax=ax, y=list_of_variables[0], hue=list_of_variables[0], legend=False, data=input_df)
+
+        # Add subplot title for single subplot
+        ax.set_title(list_of_variables[0])
 
     # Add overall Figure title 
     fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)
