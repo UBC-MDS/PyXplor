@@ -125,8 +125,9 @@ def plot_categorical(
             # Create Bar Plot sublpot for each element in list_of_variables
             sns.countplot(ax=ax[i], y=var, hue=var, legend=False, data=input_df)
 
-            # Add subplot title
+            # Add subplot title and remove y-axis label
             ax[i].set_title(var)
+            ax[i].set(ylabel=None)
 
             # Adjust label font size
             ax[i].yaxis.set_major_locator(FixedLocator(ax[i].get_yticks()))
@@ -138,8 +139,9 @@ def plot_categorical(
         #Create Bar Plot for single subplot
         sns.countplot(ax=ax, y=list_of_variables[0], hue=list_of_variables[0], legend=False, data=input_df)
 
-        # Add subplot title for single subplot
+        # Add subplot title for single subplot and remove y-axis label
         ax.set_title(list_of_variables[0])
+        ax.set(ylabel=None)
 
     # Add overall Figure title 
     fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)
