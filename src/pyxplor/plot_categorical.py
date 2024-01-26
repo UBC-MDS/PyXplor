@@ -1,17 +1,18 @@
 import pandas as pd
 import math
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FixedLocator
 import seaborn as sns
 
 def plot_categorical(
         input_df: pd.DataFrame,
         list_of_variables: list,
-        label_fontsize: int = 10,
+        yaxis_label_fontsize: int = 10,
         figsize: tuple = (10, 6),
         output: bool = False,
         super_title: str = "Distribution of Categorical Variables",
         super_title_fontsize: int = 14,
-        padding: float=0.5) -> None:
+        padding: tuple = (0.5, 0.5) )-> None:
     """Plot the distribution of the categorical variables in a DataFrame, save the plot, and display it.
 
     This function will construct a set of subplots (all horizontal bar plots)
@@ -26,8 +27,8 @@ def plot_categorical(
     list_of_variables : list
         List of categorical variables (column names) to be plotted
 
-    label_fontsize : int, optional
-        Font size for axis labels. Default is 10.
+    yaxis_label_fontsize : int, optional
+        Font size for y-axis tick labels (i.e. categorical values). Default is 10.
 
     figsize : tuple[width: int, height: int], optional
         The width and height of the figure size in a tuple. Default is (10, 6).
@@ -41,8 +42,9 @@ def plot_categorical(
     super_title_fontsize : int, optional
         Font size for the super title. Default is 14.
 
-    padding : float, optional
-        The height of the padding between subplots, as a fraction of the average Axes height. Default is (0.5).
+    padding : tuple[hspace: int, wspace: int], optional
+        The height and width padding between subplots in a tuple, 
+        as a fraction of the average Axes height. Default is (0.5, 0.5).
 
     Returns
     -------
@@ -78,9 +80,9 @@ def plot_categorical(
         print(f"Dropping the following variables for plotting: {', '.join(dropped_list)}")
         list_of_variables = selected_cols
     
-    # Check if label_fontsize is a number
-    if not (isinstance(label_fontsize, (int, float))):
-        raise ValueError("label_fontsize must be a number (integers or floats).")
+    # Check if yaxis_label_fontsize is a number
+    if not (isinstance(yaxis_label_fontsize, (int, float))):
+        raise ValueError("yaxis_label_fontsize must be a number (integers or floats).")
     
     # Check figsize is a tuple of 2 numbers
     if not (isinstance(figsize, tuple) and len(figsize) == 2 and
@@ -99,6 +101,11 @@ def plot_categorical(
     if not isinstance(super_title_fontsize, (int, float)):
         raise ValueError("super_title_fontsize must be a number (integer or float).")
 
+    # Check figsize is a tuple of 2 numbers
+    if not (isinstance(padding, tuple) and len(padding) == 2 and
+            isinstance(padding[0], (int, float)) and isinstance(padding[1], (int, float))):
+        raise ValueError("padding must be a tuple of exactly two numbers (integers or floats).")
+
     # Calculate dimensions of figure (number of rows and columns of sublots)
     total_plots = len(list_of_variables)
     rows = math.ceil(math.sqrt(total_plots))
@@ -107,24 +114,40 @@ def plot_categorical(
     # Create Figure object and Axes array
     fig, ax = plt.subplots(rows, cols, figsize=figsize)
 
-    # Flatten Axes array if more than one variable provided for plotting
+    # Case when multiple subplots to be created
     if len(list_of_variables) > 1:
+        # Flatten Axes array if more than one variable provided for plotting
         ax = ax.flatten()
 
-    # Iterate through plotting categorical variables
-    for i, var in enumerate(list_of_variables):  
+        # Iterate through plotting categorical variables
+        for i, var in enumerate(list_of_variables):  
 
-        # Create Bar Plot sublpot for each element in list_of_variables
-        sns.countplot(ax=ax[i], y=var, hue=var, legend=False, data=input_df)
+            # Create Bar Plot sublpot for each element in list_of_variables
+            sns.countplot(ax=ax[i], y=var, hue=var, legend=False, data=input_df)
 
-        # Add subplot title
-        ax[i].set_title(var)
+            # Add subplot title and remove y-axis label
+            ax[i].set_title(var)
+            ax[i].set(ylabel=None)
+
+            # Adjust label font size
+            ax[i].yaxis.set_major_locator(FixedLocator(ax[i].get_yticks()))
+            ax[i].set_yticklabels(ax[i].get_yticklabels(), fontsize=yaxis_label_fontsize)
+
+
+    else: # Just one variable provided in list_of_variables
+
+        #Create Bar Plot for single subplot
+        sns.countplot(ax=ax, y=list_of_variables[0], hue=list_of_variables[0], legend=False, data=input_df)
+
+        # Add subplot title for single subplot and remove y-axis label
+        ax.set_title(list_of_variables[0])
+        ax.set(ylabel=None)
 
     # Add overall Figure title 
     fig.suptitle(super_title, fontweight="bold", fontsize=super_title_fontsize)
 
     # Configure subplot spacing
-    plt.subplots_adjust(hspace=padding)
+    plt.subplots_adjust(hspace=padding[0], wspace=padding[1])
 
     # Save figure into current working directory if output is True
     if output:

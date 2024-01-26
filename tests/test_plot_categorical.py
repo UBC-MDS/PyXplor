@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import math
+import matplotlib
 import matplotlib.pyplot as plt
 import os
 import re
@@ -47,10 +48,10 @@ def test_variable_selection(test_data, capsys):
     )
     assert captured.out == expected_output
 
-# Test valid label fontsize
+# Test valid y-axis label fontsize
 def test_non_numeric_label_fontsize(test_data):
-    with pytest.raises(ValueError, match=re.escape("label_fontsize must be a number (integers or floats).")):
-        plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], label_fontsize="abc")
+    with pytest.raises(ValueError, match=re.escape("yaxis_label_fontsize must be a number (integers or floats).")):
+        plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], yaxis_label_fontsize="abc")
 
 # Test valid figsize
 def test_non_tuple_figsize(test_data):
@@ -72,7 +73,12 @@ def test_non_numeric_super_title_fontsize(test_data):
     with pytest.raises(ValueError, match=re.escape("super_title_fontsize must be a number (integer or float).")):
         plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], super_title_fontsize="abc")
 
-# Test correct return
+# Test valid figsize
+def test_non_tuple_padding(test_data):
+    with pytest.raises(ValueError, match=re.escape("padding must be a tuple of exactly two numbers (integers or floats).")):
+        plot_categorical(test_data, ['Categorical_Variable_1', 'Categorical_Variable_2'], padding=[0.5, 0.5])
+
+# Test correct return with multiple features in list
 def test_plot_categorical_return(test_data):
     fig, ax = plot_categorical(test_data, test_data.columns.to_list())
     assert isinstance(fig, plt.Figure)
@@ -81,6 +87,13 @@ def test_plot_categorical_return(test_data):
     rows = math.ceil(math.sqrt(len(test_data.columns.to_list())))
     cols = math.ceil(len(test_data.columns.to_list()) / rows) 
     assert len(ax) == rows * cols
+
+# Test correct return with multiple features in list
+def test_plot_categorical_return(test_data):
+    fig, ax = plot_categorical(test_data, ['Categorical_Variable_1'])
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, matplotlib.axes._axes.Axes)
+    assert fig._suptitle.get_text() == "Distribution of Categorical Variables"
 
 # Test subplot titles
 def test_subplot_title(test_data):
