@@ -131,8 +131,8 @@ def plot_numeric(
             # Add central tendency labels with different colors
             mean = input_df[variable].mean()
             median = input_df[variable].median()
-            mean_label = f'Mean: {mean:.2e} units'
-            median_label = f'Median: {median:.2e} units'
+            mean_label = f'Mean: {mean:.2e}'
+            median_label = f'Median: {median:.2e}'
             ax[i].axvline(mean, color='orange', linestyle='dashed', linewidth=2, label=mean_label)
             ax[i].axvline(median, color='red', linestyle='dashed', linewidth=2, label=median_label)
 
