@@ -22,22 +22,26 @@ def test_data_numeric():
 # Test non-dataframe input
 def test_non_df_input_numeric():
     with pytest.raises(ValueError, match=re.escape("input_df must be a pandas DataFrame.")):
-        plot_numeric(None, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10)
+        fig, ax = plot_numeric(None, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10)
+        plt.close('all')
 
 # Test for non-numeric columns
 def test_non_numeric_columns_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("No valid numeric columns found in the provided list_of_variables.")):
-        plot_numeric(test_data_numeric, ['non_numeric_var'], 'hist', 30, 10)
+        fig, ax = plot_numeric(test_data_numeric, ['non_numeric_var'], 'hist', 30, 10)
+        plt.close('all')
 
 # Test case where there are no numeric variables
 def test_no_numeric_variables_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("No valid numeric columns found in the provided list_of_variables.")):
-        plot_numeric(test_data_numeric, ['non_numeric_var'], 'hist', 30, 10)
+        fig, ax = plot_numeric(test_data_numeric, ['non_numeric_var'], 'hist', 30, 10)
+        plt.close('all')
 
 # Test empty list of variables
 def test_empty_list_of_variables_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("list_of_variables cannot be an empty list.")):
-        plot_numeric(test_data_numeric, [], 'hist', 30, 10)
+        fig, ax = plot_numeric(test_data_numeric, [], 'hist', 30, 10)
+        plt.close('all')
 
 # Test for larger dataset
 def test_large_dataset_numeric():
@@ -51,26 +55,32 @@ def test_large_dataset_numeric():
     fig, ax = plot_numeric(df_large, ['numeric_var1', 'numeric_var2'], 'hist+kde', 30, 10)
     assert isinstance(fig, plt.Figure)
     assert isinstance(ax, np.ndarray)
+    plt.close('all')
 
 # Test variable not in the dataframe
 def test_var_not_in_input_df_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("The following variables are not present in the DataFrame:")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'Random_Variable'], 'hist', 30, 10)
+        fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'Random_Variable'], 'hist', 30, 10)
+        plt.close('all')
+        plt.close('all')
 
 # Test invalid plot_kind
 def test_invalid_plot_kind_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("Invalid value for 'plot_kind'. It should be either 'hist', 'kde', or 'hist+kde'.")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'invalid_plot_kind', 30, 10)
+        fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'invalid_plot_kind', 30, 10)
+        plt.close('all')
 
 # Test non-numeric label_y_offset
 def test_non_numeric_label_y_offset_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("label_y_offset and label_fontsize must be numbers (integers or floats).")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 'abc', 10)
+        fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 'abc', 10)
+        plt.close('all')
 
 # Test valid figsize
 def test_non_tuple_figsize_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("figsize must be a tuple of exactly two numbers (integers or floats).")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, figsize=[10, 6])
+        fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, figsize=[10, 6])
+        plt.close('all')
 
 # Test for 'hist' and 'kde' without 'hist+kde'
 def test_plot_kind_without_kde_numeric(test_data_numeric):
@@ -85,16 +95,19 @@ def test_plot_kind_without_kde_numeric(test_data_numeric):
 # Test correctness of the plots
 def test_plot_correctness_numeric(test_data_numeric):
     fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist+kde', 30, 10)
+    plt.close('all')
 
 # Test non-string output_path
 def test_non_string_output_path_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("Output must be a boolean value.")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, output=123)
+        fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, output=123)
+        plt.close('all')
 
 # Test non-numeric super_title_font
 def test_non_numeric_super_title_font_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("super_title_font must be a number (integer or float).")):
-        plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, super_title_font="abc")
+        fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, super_title_font="abc")
+        plt.close('all')
 
 # Test correct return
 def test_plot_numeric_return(test_data_numeric):
@@ -109,7 +122,7 @@ def test_plot_numeric_return(test_data_numeric):
 # Test saved output (output_path specified)
 def test_output_save_numeric(test_data_numeric, tmp_path):
     output_path = os.path.join(tmp_path, 'numeric_distribution.png')
-    plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, (8, 6), output=True)
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', 30, 10, (8, 6), output=True)
     assert os.path.exists("numeric_variables.png")
     os.remove("numeric_variables.png")  # Clean up
-    
+    plt.close('all')
