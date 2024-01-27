@@ -7,7 +7,6 @@ def plot_numeric(
         input_df: pd.DataFrame,
         list_of_variables: list,
         plot_kind: str,
-        label_fontsize: int = 10,
         figsize: tuple = (8, 10),
         output: bool = False,
         super_title: str = "Distribution of Numeric Variables",
@@ -30,9 +29,6 @@ def plot_numeric(
         'hist': Histogram only.
         'kde': Kernel density estimate plot only.
         'hist+kde': Histogram with a kernel density estimate plot showing median and mean.
-
-    label_fontsize : int, optional
-        Font size for axis labels. Default is 10.
 
     figsize : tuple[int, int], optional
         The width and height of the figure size in a tuple. Default is (8, 10)
@@ -75,10 +71,6 @@ def plot_numeric(
     valid_plot_kinds = {'hist', 'kde', 'hist+kde'}
     if plot_kind not in valid_plot_kinds:
         raise ValueError("Invalid value for 'plot_kind'. It should be either 'hist', 'kde', or 'hist+kde'.")
-
-    # Validate label_y_offset and label_fontsize
-    if not all(isinstance(val, (int, float)) for val in [label_y_offset, label_fontsize]):
-        raise ValueError("label_y_offset and label_fontsize must be numbers (integers or floats).")
 
     # Validate figsize
     if not (isinstance(figsize, tuple) and len(figsize) == 2 and
