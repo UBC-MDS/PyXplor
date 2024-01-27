@@ -31,7 +31,7 @@ def plot_numeric(
         'hist+kde': Histogram with a kernel density estimate plot showing median and mean.
 
     figsize : tuple[int, int], optional
-        The width and height of the figure size in a tuple. Default is (8, 10)
+        The width and height of the figure size in a tuple. Default is (8, 10).
 
     output : bool, optional
         Whether to output the figure to the current working directory. Default is False.
