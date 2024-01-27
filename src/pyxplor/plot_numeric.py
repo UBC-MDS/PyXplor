@@ -7,7 +7,6 @@ def plot_numeric(
         input_df: pd.DataFrame,
         list_of_variables: list,
         plot_kind: str,
-        label_y_offset: int = 10,
         label_fontsize: int = 10,
         figsize: tuple = (8, 10),
         output: bool = False,
@@ -31,9 +30,6 @@ def plot_numeric(
         'hist': Histogram only.
         'kde': Kernel density estimate plot only.
         'hist+kde': Histogram with a kernel density estimate plot showing median and mean.
-
-    label_y_offset : int, optional
-        Y-axis offset for label positioning. Default is 10.
 
     label_fontsize : int, optional
         Font size for axis labels. Default is 10.
