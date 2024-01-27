@@ -7,8 +7,6 @@ def plot_numeric(
         input_df: pd.DataFrame,
         list_of_variables: list,
         plot_kind: str,
-        label_y_offset: int = 10,
-        label_fontsize: int = 10,
         figsize: tuple = (8, 10),
         output: bool = False,
         super_title: str = "Distribution of Numeric Variables",
@@ -32,14 +30,8 @@ def plot_numeric(
         'kde': Kernel density estimate plot only.
         'hist+kde': Histogram with a kernel density estimate plot showing median and mean.
 
-    label_y_offset : int, optional
-        Y-axis offset for label positioning. Default is 10.
-
-    label_fontsize : int, optional
-        Font size for axis labels. Default is 10.
-
     figsize : tuple[int, int], optional
-        The width and height of the figure size in a tuple. Default is (8, 10)
+        The width and height of the figure size in a tuple. Default is (8, 10).
 
     output : bool, optional
         Whether to output the figure to the current working directory. Default is False.
@@ -79,10 +71,6 @@ def plot_numeric(
     valid_plot_kinds = {'hist', 'kde', 'hist+kde'}
     if plot_kind not in valid_plot_kinds:
         raise ValueError("Invalid value for 'plot_kind'. It should be either 'hist', 'kde', or 'hist+kde'.")
-
-    # Validate label_y_offset and label_fontsize
-    if not all(isinstance(val, (int, float)) for val in [label_y_offset, label_fontsize]):
-        raise ValueError("label_y_offset and label_fontsize must be numbers (integers or floats).")
 
     # Validate figsize
     if not (isinstance(figsize, tuple) and len(figsize) == 2 and
@@ -131,8 +119,8 @@ def plot_numeric(
             # Add central tendency labels with different colors
             mean = input_df[variable].mean()
             median = input_df[variable].median()
-            mean_label = f'Mean: {mean:.2e} units'
-            median_label = f'Median: {median:.2e} units'
+            mean_label = f'Mean: {mean:.2f}'
+            median_label = f'Median: {median:.2f}'
             ax[i].axvline(mean, color='orange', linestyle='dashed', linewidth=2, label=mean_label)
             ax[i].axvline(median, color='red', linestyle='dashed', linewidth=2, label=median_label)
 
