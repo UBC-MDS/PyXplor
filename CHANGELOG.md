@@ -2,6 +2,19 @@
 
 
 
+## v2.0.2 (2024-01-30)
+
+### Fix
+
+* fix: test publishing to pypi ([`4e8477b`](https://github.com/UBC-MDS/PyXplor/commit/4e8477b43c4e4d8a24ff5aec3f38c3c9a686dbb8))
+
+### Unknown
+
+* Merge pull request #114 from UBC-MDS/phchen5-patch-4
+
+fix: test publishing to pypi ([`23d4683`](https://github.com/UBC-MDS/PyXplor/commit/23d468367e48b4cf845e0e730a597e7e8ada4e05))
+
+
 ## v2.0.1 (2024-01-29)
 
 ### Fix
