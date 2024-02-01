@@ -1,6 +1,7 @@
 # pyxplor
 
 [![Documentation Status](https://readthedocs.org/projects/pyxplor/badge/?version=latest)](https://pyxplor.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![version](https://img.shields.io/github/v/release/UBC-MDS/pyxplor) ![release](https://img.shields.io/github/release-date/UBC-MDS/pyxplor)
+[![ci-cd](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml)
 
 <img src="https://github.com/UBC-MDS/pyxplor/blob/main/img/pyxplor_logo.png?raw=true" height="300">
 
