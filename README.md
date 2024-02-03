@@ -4,7 +4,7 @@
 [![ci-cd](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Python 3.9.0](https://img.shields.io/badge/python-3.9.0-blue.svg)](https://www.python.org/downloads/release/python-390/)
-[![PyPI - Version](https://img.shields.io/pypi/v/PyXplor)]([https://pypi.org/project/pyxplor/)]
+[![PyPI - Version](https://img.shields.io/pypi/v/PyXplor)](https://pypi.org/project/pyxplor/)
 [![codecov](https://codecov.io/gh/UBC-MDS/PyXplor/graph/badge.svg?token=pJe5bA9V8z)](https://codecov.io/gh/UBC-MDS/PyXplor)
 
 
