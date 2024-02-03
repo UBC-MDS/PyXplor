@@ -18,7 +18,7 @@ A package for simplifying the EDA of different data types!
 
 ## Documentation
 
-Online documentation can be found [here](https://pyxplor.readthedocs.io/en/latest/?badge=latest/)
+Online documentation can be found [here.](https://pyxplor.readthedocs.io/en/latest/?badge=latest/)
 
 
 ## Installation (developers)
