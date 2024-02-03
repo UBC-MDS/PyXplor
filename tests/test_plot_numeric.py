@@ -62,7 +62,7 @@ def test_var_not_in_input_df_numeric(test_data_numeric):
     with pytest.raises(ValueError, match=re.escape("The following variables are not present in the DataFrame:")):
         fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'Random_Variable'], 'hist')
         plt.close('all')
-        plt.close('all')
+     
 
 # Test invalid plot_kind
 def test_invalid_plot_kind_numeric(test_data_numeric):
@@ -113,10 +113,37 @@ def test_plot_numeric_return(test_data_numeric):
     cols = math.ceil(len(['numeric_var1', 'numeric_var2']) / rows)
     assert len(ax) == rows * cols
 
+# Test default color
+def test_plot_default_color_numeric(test_data_numeric):
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist')
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
+    plt.close('all')
+
+# Test custom color
+def test_plot_custom_color_numeric(test_data_numeric):
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', color='green')
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
+    plt.close('all')
+
+# Test custom mean and median colors
+def test_plot_mean_median_color_numeric(test_data_numeric):
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist+kde', mean_color='blue', median_color='purple')
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
+    plt.close('all')
+
+# Test custom color and mean/median colors together
+def test_plot_combined_color_options_numeric(test_data_numeric):
+    fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist+kde', color='green', mean_color='blue', median_color='purple')
+    assert isinstance(fig, plt.Figure)
+    assert isinstance(ax, np.ndarray)
+    plt.close('all')
+
 # Test saved output (output_path specified)
-def test_output_save_numeric(test_data_numeric, tmp_path):
-    output_path = os.path.join(tmp_path, 'numeric_distribution.png')
+def test_output_save_numeric(test_data_numeric):
     fig, ax = plot_numeric(test_data_numeric, ['numeric_var1', 'numeric_var2'], 'hist', (8, 6), output=True)
-    assert os.path.exists("numeric_variables.png")
-    os.remove("numeric_variables.png")  # Clean up
+    assert os.path.exists('numeric_variables.png')
+    os.remove('numeric_variables.png')  # Clean up
     plt.close('all')
