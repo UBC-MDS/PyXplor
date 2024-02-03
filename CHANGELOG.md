@@ -2,6 +2,69 @@
 
 
 
+## v2.0.3 (2024-02-03)
+
+### Fix
+
+* fix: Feedback addressed by @iris0614 about plot_numeric - suggested by @YimengXia ([`cdd4982`](https://github.com/UBC-MDS/PyXplor/commit/cdd49826b9b2bed15ef6d72093340f7280a299b2))
+
+* fix: Feedback addressed by @iris0614 about numeric_plot color ([`02a49cb`](https://github.com/UBC-MDS/PyXplor/commit/02a49cb78f62c372b0d7f7901acd6f361f86ddaf))
+
+* fix: Feedback addressed by iris about numeric_color ([`eaca0da`](https://github.com/UBC-MDS/PyXplor/commit/eaca0dad50fd705a84e1e6dc76ed817f49ae05d0))
+
+* fix: Feedback addressed by iris about color of numeric ([`a4a8a85`](https://github.com/UBC-MDS/PyXplor/commit/a4a8a85f0aa69ff7383aa61209c66f543bea1247))
+
+* fix: polish the docs adding more parameters ([`3359bb8`](https://github.com/UBC-MDS/PyXplor/commit/3359bb8c40f7d4057e2752359d59a468844877f2))
+
+* fix: Feedback addressed by @YimengXia about adding code coverage badge ([`9cda31a`](https://github.com/UBC-MDS/PyXplor/commit/9cda31a3942a63ad79e96917eb36091e658ee7f4))
+
+* fix: Update README.md ([`c6dfa7e`](https://github.com/UBC-MDS/PyXplor/commit/c6dfa7e2f9a5e2ea19aedc69391ed7908960976d))
+
+* fix: some changes ([`681b720`](https://github.com/UBC-MDS/PyXplor/commit/681b7205aec2fe0aded9ed997a247f0cd93b7f9c))
+
+* fix: Feedback addressed by @joeywwwu about release version ([`56f7a4f`](https://github.com/UBC-MDS/PyXplor/commit/56f7a4f197092eb9f6da7f9dc43ababe552b9d8c))
+
+* fix: Feedback addressed by @joeywwwu about pypi version ([`a0d6bea`](https://github.com/UBC-MDS/PyXplor/commit/a0d6bead930488384727fde00e848b1c2ddf6fa6))
+
+* fix: Feedback addressed by @YimengXia about python version badge ([`de696c2`](https://github.com/UBC-MDS/PyXplor/commit/de696c21d9fd4aad2848a92c84c1f036f64a4968))
+
+* fix: Feedback addressed by @YimengXia about repo status badge ([`34fd936`](https://github.com/UBC-MDS/PyXplor/commit/34fd936ee77041ef9d7922d8a31d044ef9b957c9))
+
+* fix: Feedback addressed by Marcony1 about adding ci-cd badge ([`ee1a712`](https://github.com/UBC-MDS/PyXplor/commit/ee1a712290bfae011e704da809782fdc2852cc59))
+
+* fix: Feedback addressed by @Marcony1 about adding clickable button that leads to the documentation ([`0040107`](https://github.com/UBC-MDS/PyXplor/commit/004010740938064236ddc7b765b0329b0259a4be))
+
+* fix: Feedback addressed by @Marcony1 about adding clickable button that leads to the documentation ([`86c70a8`](https://github.com/UBC-MDS/PyXplor/commit/86c70a818c5aa1d60cb2390f75e37c854ddb31b5))
+
+* fix: Feedback addressed by @Marcony1 about adding clickable button that leads to the documentation ([`39b88e7`](https://github.com/UBC-MDS/PyXplor/commit/39b88e790f7610b15be67a66374c1ec5ce0dc8bf))
+
+* fix: Feedback addressed by @Marcony1 about adding clickable button that leads to the documentation ([`4a9f24f`](https://github.com/UBC-MDS/PyXplor/commit/4a9f24f120089f3e10bc7f07be52001f4880156c))
+
+### Unknown
+
+* Merge pull request #125 from UBC-MDS/117-plot_numeric-peer-review
+
+117 plot numeric peer review ([`04685ba`](https://github.com/UBC-MDS/PyXplor/commit/04685baa152dd0670291fe4ae54cea879573d64e))
+
+* update the numeric (peer review) ([`b91fad5`](https://github.com/UBC-MDS/PyXplor/commit/b91fad59b248b9a67ee11a9cabd21b315f5b2c18))
+
+* add color option ([`88f08d0`](https://github.com/UBC-MDS/PyXplor/commit/88f08d071c9050c6bd04a97d82e0b6484b0dddb5))
+
+* Merge pull request #119 from UBC-MDS/arturoboquin-patch-8
+
+fix: Feedback addressed by Marcony1 about adding ci-cd badge ([`193637f`](https://github.com/UBC-MDS/PyXplor/commit/193637f6016c139665f0a73131e684614a879f89))
+
+* Merge pull request #118 from UBC-MDS/arturoboquin-patch-7
+
+fix: Feedback addressed by @Marcony1 about adding clickable button th… ([`5619895`](https://github.com/UBC-MDS/PyXplor/commit/56198950c59a4ec9bd795a66526b3b26e18155b4))
+
+* Merge pull request #116 from UBC-MDS/arturoboquin-patch-6
+
+fix: Feedback addressed by @Marcony1 about adding clickable button th… ([`9d999eb`](https://github.com/UBC-MDS/PyXplor/commit/9d999eb532f4d60b5635e90f1bc7f3d8e4b29d87))
+
+* delete pyxplor.py ([`ef02489`](https://github.com/UBC-MDS/PyXplor/commit/ef02489f2882f055706d886d8ca016bdb59bbbc4))
+
+
 ## v2.0.2 (2024-01-30)
 
 ### Fix
