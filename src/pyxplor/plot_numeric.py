@@ -11,7 +11,7 @@ def plot_numeric(
         output: bool = False,
         super_title: str = "Distribution of Numeric Variables",
         super_title_font: int = 14,
-        color: str = "skyblue",
+        color: str = "'midnightblue'",
         mean_color: str = "orange",
         median_color: str = "red")-> None:
     """Plot the distribution of numeric variables in a DataFrame, save the plot, and display it.
