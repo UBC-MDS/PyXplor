@@ -21,7 +21,7 @@ A package for simplifying the EDA of different data types!
 
 ## Documentation
 
-Online documentation can be found [here](https://pyxplor.readthedocs.io/en/latest/?badge=latest/).
+The online documentation can be accessed [here](https://pyxplor.readthedocs.io/en/latest/?badge=latest/).
 
 
 ## Installation
@@ -43,7 +43,7 @@ git clone https://github.com/UBC-MDS/PyXplor.git
 cd pyxplor
 ```
 
-2. Create an environment with conda and then activate the environment.
+2. Create an environment with `conda` and then activate the environment.
 
 ```bash
 conda create -n pyxplor python=3.12 -y
@@ -64,7 +64,7 @@ poetry install
 
 ## Testing
 
-To test that the functions is working properly, run the commands below from the root directory.
+To test that the functions are working properly, run the commands below from the root directory.
 
 ```bash
 pytest tests/
@@ -73,7 +73,7 @@ pytest tests/
 To see the coverage of the tests, run the commands below instead.
 
 ```bash
-pytest tests/ --cov
+pytest tests/ --cov=pyxplor
 ```
 
 ## Usage
@@ -85,25 +85,24 @@ from pyxplor.plot_binary import plot_binary
 from pyxplor.plot_categorical import plot_categorical
 from pyxplor.plot_numeric import plot_numeric
 from pyxplor.plot_time_series import plot_time_series
+import seaborn as sns
+import pandas as pd
 
 # a dataframe that contains different types of variables
-data = {
-    'BinaryVariable': binary_variable,
-    'CategoricalVariable': categorical_variable,
-    'NumericVariable': numeric_variable,
-    'DatetimeVariable': datetime_variable
-}
+taxi = sns.load_dataset("taxis")
+taxi = taxi.dropna()
 
-df = pd.DataFrame(data)
+# different variable types
+binary_variables = ['color', 'payment']
+categorical_variables = ['passengers', 'pickup_zone']
+numeric_variables = ['fare', 'tip']
+datetime_variable = 'pickup'
 
-binary_variables = ['BinaryVariable']
-categorical_variables = ['CategoricalVariable']
-numeric_variables = ['NumericVariable']
-
-fig, ax = plot_binary(df, binary_variables, "count")
-fig, ax = plot_categorical(df, categorical_variables)
-fig, ax = plot_numeric(df, numeric_variables, "hist+kde")
-fig, ax = plot_time_series(df, "DatetimeVariable", numeric_variables)
+# univariate plotting each of the variable type
+fig, ax = plot_binary(taxi, binary_variables, "count")
+fig, ax = plot_categorical(taxi, categorical_variables)
+fig, ax = plot_numeric(taxi, numeric_variables, "hist+kde")
+fig, ax = plot_time_series(taxi, datetime_variable, numeric_variables, freq='M')
 ```
 
 ## Functions
@@ -124,7 +123,7 @@ While there are several EDA packages in the Python ecosystem, such as `pandas-pr
 
 ## Contributing
 
-Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a Code of Conduct. By contributing to this project, you agree to abide by its terms.
+Interested in contributing? Check out the contributing guidelines. Please note that this project is released with a [Code of Conduct](CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 ## Contributors
 
@@ -135,7 +134,7 @@ Interested in contributing? Check out the contributing guidelines. Please note t
 
 ## License
 
-`pyxplor` was created by Ben Chen, Rachel Bouwer, Arturo Boquin, and Iris Luo. It is licensed under the terms of the MIT license.
+`pyxplor` was created by Ben Chen, Rachel Bouwer, Arturo Boquin, and Iris Luo. It is licensed under the terms of the [MIT license](LICENSE).
 
 ## Credits
 
