@@ -1,11 +1,15 @@
 # pyxplor
 
-[![Documentation Status](https://readthedocs.org/projects/pyxplor/badge/?version=latest)](https://pyxplor.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![version](https://img.shields.io/github/v/release/UBC-MDS/pyxplor) ![release](https://img.shields.io/github/release-date/UBC-MDS/pyxplor)
+[![Documentation Status](https://readthedocs.org/projects/pyxplor/badge/?version=latest)](https://pyxplor.readthedocs.io/en/latest/?badge=latest) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 [![ci-cd](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![codecov](https://codecov.io/gh/UBC-MDS/PyXplor/graph/badge.svg?token=pJe5bA9V8z)](https://codecov.io/gh/UBC-MDS/PyXplor)
+
+![version](https://img.shields.io/github/v/release/UBC-MDS/pyxplor) 
+![release](https://img.shields.io/github/release-date/UBC-MDS/pyxplor)
 [![Python 3.12.0](https://img.shields.io/badge/python-3.12.0-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![PyPI - Version](https://img.shields.io/pypi/v/PyXplor)](https://pypi.org/project/pyxplor/)
-[![codecov](https://codecov.io/gh/UBC-MDS/PyXplor/graph/badge.svg?token=pJe5bA9V8z)](https://codecov.io/gh/UBC-MDS/PyXplor)
 
 <img src="https://github.com/UBC-MDS/pyxplor/blob/main/img/pyxplor_logo.png?raw=true" height="300">
 
@@ -20,9 +24,17 @@ A package for simplifying the EDA of different data types!
 Online documentation can be found [here](https://pyxplor.readthedocs.io/en/latest/?badge=latest/).
 
 
-## Installation (developers)
+## Installation
 
-Note that the package is still under development.
+### <ins>User Installation</ins>
+
+Run the following code in your terminal to install the package from PyPI:
+
+```bash
+pip install pyxplor
+```
+
+### <ins>Developer Installation</ins>
 
 1. Clone the repository.
 
@@ -34,7 +46,7 @@ cd pyxplor
 2. Create an environment with conda and then activate the environment.
 
 ```bash
-conda create -n pyxplor python=3.11 -y
+conda create -n pyxplor python=3.12 -y
 conda activate pyxplor
 ```
 
