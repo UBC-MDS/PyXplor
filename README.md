@@ -3,7 +3,7 @@
 [![Documentation Status](https://readthedocs.org/projects/pyxplor/badge/?version=latest)](https://pyxplor.readthedocs.io/en/latest/?badge=latest) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![version](https://img.shields.io/github/v/release/UBC-MDS/pyxplor) ![release](https://img.shields.io/github/release-date/UBC-MDS/pyxplor)
 [![ci-cd](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/UBC-MDS/PyXplor/actions/workflows/ci-cd.yml)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Python 3.9.0](https://img.shields.io/badge/python-3.11.0-blue.svg)](https://www.python.org/downloads/release/python-3100/)
+[![Python 3.9.0](https://img.shields.io/badge/python-3.11.0-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![PyPI - Version](https://img.shields.io/pypi/v/PyXplor)](https://pyxplor.readthedocs.io/en/latest/?badge=latest%2F)
 [![codecov](https://codecov.io/gh/UBC-MDS/PyXplor/graph/badge.svg?token=pJe5bA9V8z)](https://codecov.io/gh/UBC-MDS/PyXplor)
 
