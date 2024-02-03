@@ -2,6 +2,19 @@
 
 
 
+## v2.0.8 (2024-02-03)
+
+### Fix
+
+* fix: resolved merge conflicts based on addressing function feedback ([`d8d567c`](https://github.com/UBC-MDS/PyXplor/commit/d8d567c27fc8dc6f1745e7d8570e4a4705ebe91e))
+
+### Unknown
+
+* Merge pull request #132 from UBC-MDS/124-plot_categorical-function-improvements-based-on-peer-review-feedback
+
+Feedback addressed by @rbouwer as suggested by @salva-u to improve `plot_categorical` functionality ([`9d541c3`](https://github.com/UBC-MDS/PyXplor/commit/9d541c3867788589a4388343ad2180ca1c3bd3ea))
+
+
 ## v2.0.7 (2024-02-03)
 
 ### Unknown
@@ -18,6 +31,8 @@ fix: feedback addressed by @iris0614 about plot_numeric color default… ([`a8c0
 * Merge pull request #129 from UBC-MDS/arturoboquin-patch-10
 
 fix: Feedback addressed by @arturoboquin  suggested by @ Marcony1 ([`ffb8254`](https://github.com/UBC-MDS/PyXplor/commit/ffb825443dd7f9983e95ae2aadc47249f921f1fe))
+
+* Feedback addressed by @rbouwer as suggested by @salva-u ([`7dc921d`](https://github.com/UBC-MDS/PyXplor/commit/7dc921d707b5d1eda330420b75965f958e81853e))
 
 * Merge branch &#39;main&#39; into arturoboquin-patch-10 ([`d111aa4`](https://github.com/UBC-MDS/PyXplor/commit/d111aa42de625f851b4fe02bea58812be848b98c))
 

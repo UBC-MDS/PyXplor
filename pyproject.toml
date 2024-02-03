@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyxplor"
-version = "2.0.7"
+version = "2.0.8"
 description = "A package for simplifying the EDA of different data types!"
 authors = ["Ben Chen Rachel Bouwer Arturo Boquin Iris Luo"]
 license = "MIT"
