@@ -2,6 +2,40 @@
 
 
 
+## v2.0.5 (2024-02-03)
+
+### Unknown
+
+* Merge pull request #128 from UBC-MDS/arturoboquin-patch-9
+
+fix: Feedback addressed by @arturoboquin  suggested by @YimengXia ([`5b7c559`](https://github.com/UBC-MDS/PyXplor/commit/5b7c559ee5258a2734501f87a7140bb138ae2048))
+
+
+## v2.0.4 (2024-02-03)
+
+### Fix
+
+* fix: Feedback addressed by @arturoboquin  suggested by @joeywwwu ([`dd38803`](https://github.com/UBC-MDS/PyXplor/commit/dd38803553fe6307014fb1418d9c192a5c8b7d18))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @joeywwwu ([`e9b14fe`](https://github.com/UBC-MDS/PyXplor/commit/e9b14fe93d9e13ebf1bd8bd86c01c0d23261c211))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @joeywwwu ([`0c370de`](https://github.com/UBC-MDS/PyXplor/commit/0c370dec144931e070f803fa6f568c8428777d32))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @joeywwwu ([`250732b`](https://github.com/UBC-MDS/PyXplor/commit/250732b42af30d265c10b9acad65ac7a32a59435))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @YimengXia ([`e70d1ea`](https://github.com/UBC-MDS/PyXplor/commit/e70d1ea9706515fed89277ac7e648bcc6bbe6e33))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @YimengXia ([`38a1cf7`](https://github.com/UBC-MDS/PyXplor/commit/38a1cf7f5bcaafcf747eead01c02331db1a40347))
+
+* fix: Feedback addressed by @iris0614 about plot_numeric:default color setting - suggested by @YimengXia ([`9780dcd`](https://github.com/UBC-MDS/PyXplor/commit/9780dcd8c6af370508c398dce2366b439efc798c))
+
+### Unknown
+
+* Merge pull request #127 from UBC-MDS/126-plot_numericcolor
+
+fix: Feedback addressed by @iris0614 about plot_numeric:default color… ([`c6d3f49`](https://github.com/UBC-MDS/PyXplor/commit/c6d3f4933a079cef416e25db55729d9325cf299c))
+
+
 ## v2.0.3 (2024-02-03)
 
 ### Fix
