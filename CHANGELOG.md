@@ -2,6 +2,21 @@
 
 
 
+## v2.0.10 (2024-02-03)
+
+### Fix
+
+* fix: Feedback Addressed by @phchen5 about clarifying and updating the installation instructions in the README - suggested by @Marcony1 ([`b8a4807`](https://github.com/UBC-MDS/PyXplor/commit/b8a4807ed0ee999fe4e01300f3a7c249ecfb3a23))
+
+* fix: Feedbacks addressed by @phchen5 about reordering the icons for better visualization ([`f382bd8`](https://github.com/UBC-MDS/PyXplor/commit/f382bd899688b00d97307fffa3e281ffba473a8b))
+
+### Unknown
+
+* Merge pull request #135 from UBC-MDS/133-update-readme-for-clearer-instructions
+
+133 update readme for clearer instructions ([`e9f305d`](https://github.com/UBC-MDS/PyXplor/commit/e9f305d6fc90b5c11182a213a6d8104d85825a69))
+
+
 ## v2.0.9 (2024-02-03)
 
 ### Unknown
