@@ -2,6 +2,17 @@
 
 
 
+## v2.0.6 (2024-02-03)
+
+### Unknown
+
+* Merge pull request #129 from UBC-MDS/arturoboquin-patch-10
+
+fix: Feedback addressed by @arturoboquin  suggested by @ Marcony1 ([`ffb8254`](https://github.com/UBC-MDS/PyXplor/commit/ffb825443dd7f9983e95ae2aadc47249f921f1fe))
+
+* Merge branch &#39;main&#39; into arturoboquin-patch-10 ([`d111aa4`](https://github.com/UBC-MDS/PyXplor/commit/d111aa42de625f851b4fe02bea58812be848b98c))
+
+
 ## v2.0.5 (2024-02-03)
 
 ### Unknown
@@ -14,6 +25,12 @@ fix: Feedback addressed by @arturoboquin  suggested by @YimengXia ([`5b7c559`](h
 ## v2.0.4 (2024-02-03)
 
 ### Fix
+
+* fix: Feedback addressed by @arturoboquin  suggested by @Marcony1 ([`75f7990`](https://github.com/UBC-MDS/PyXplor/commit/75f79902c08b3f2b4e02586d9b50b0ca876ebc8f))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @Marcony1 ([`5acb30c`](https://github.com/UBC-MDS/PyXplor/commit/5acb30c5b24190dac589a6039573eca1bdbd59b9))
+
+* fix: Feedback addressed by @arturoboquin  suggested by @ Marcony1 ([`35f2b9a`](https://github.com/UBC-MDS/PyXplor/commit/35f2b9a1d2043bf9d4f2dd8c210ce892f145eb9b))
 
 * fix: Feedback addressed by @arturoboquin  suggested by @joeywwwu ([`dd38803`](https://github.com/UBC-MDS/PyXplor/commit/dd38803553fe6307014fb1418d9c192a5c8b7d18))
 
