@@ -2,6 +2,15 @@
 
 
 
+## v2.0.7 (2024-02-03)
+
+### Unknown
+
+* Merge pull request #131 from UBC-MDS/130-plot_numeric-polish
+
+fix: feedback addressed by @iris0614 about plot_numeric color default… ([`a8c0009`](https://github.com/UBC-MDS/PyXplor/commit/a8c000927477b19edf9c7f7eb522cfbb078ed390))
+
+
 ## v2.0.6 (2024-02-03)
 
 ### Unknown
@@ -14,6 +23,10 @@ fix: Feedback addressed by @arturoboquin  suggested by @ Marcony1 ([`ffb8254`](h
 
 
 ## v2.0.5 (2024-02-03)
+
+### Fix
+
+* fix: feedback addressed by @iris0614 about plot_numeric color default - suggested by @YimenXia ([`228111d`](https://github.com/UBC-MDS/PyXplor/commit/228111dd2b96179124fda2f556e7550b3a9a936d))
 
 ### Unknown
 
