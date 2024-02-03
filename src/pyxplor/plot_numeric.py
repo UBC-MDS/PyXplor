@@ -10,7 +10,10 @@ def plot_numeric(
         figsize: tuple = (8, 10),
         output: bool = False,
         super_title: str = "Distribution of Numeric Variables",
-        super_title_font: int = 14) -> tuple:
+        super_title_font: int = 14,
+        color: str = "lightblue",
+        mean_color: str = "orange",
+        median_color: str = "red")-> None:
     """Plot the distribution of numeric variables in a DataFrame, save the plot, and display it.
 
     This function will construct a set of subplots for each of the numeric variables specified
@@ -41,6 +44,15 @@ def plot_numeric(
 
     super_title_font : int, optional
         Font size for the super title. Default is 14.
+    
+    color : str, optional
+        Color for the plot elements. If None, the default color palette will be used.
+
+    mean_color : str, optional
+        Color for the mean line. If None, the default color will be used.
+
+    median_color : str, optional
+        Color for the median line. If None, the default color will be used.
 
     Returns
     -------
@@ -110,19 +122,19 @@ def plot_numeric(
     for i, variable in enumerate(numeric_columns):
         # Plot histogram or kernel density estimate plot for each variable
         if plot_kind == 'hist':
-            sns.histplot(x=variable, data=input_df, ax=ax[i], bins=20)
+            sns.histplot(x=variable, data=input_df, ax=ax[i], bins=20, color=color)
         elif plot_kind == 'kde':
-            sns.kdeplot(x=variable, data=input_df, ax=ax[i])
+            sns.kdeplot(x=variable, data=input_df, ax=ax[i], color=color)
         elif plot_kind == 'hist+kde':
-            sns.histplot(x=variable, data=input_df, ax=ax[i], bins=20, kde=True)
+            sns.histplot(x=variable, data=input_df, ax=ax[i], bins=20, kde=True, color=color)
 
             # Add central tendency labels with different colors
             mean = input_df[variable].mean()
             median = input_df[variable].median()
             mean_label = f'Mean: {mean:.2f}'
             median_label = f'Median: {median:.2f}'
-            ax[i].axvline(mean, color='orange', linestyle='dashed', linewidth=2, label=mean_label)
-            ax[i].axvline(median, color='red', linestyle='dashed', linewidth=2, label=median_label)
+            ax[i].axvline(mean, color=mean_color, linestyle='dashed', linewidth=2, label=mean_label)
+            ax[i].axvline(median, color=median_color, linestyle='dashed', linewidth=2, label=median_label)
 
             # Add legend outside the subplots
             ax[i].legend(loc='upper right', bbox_to_anchor=(1.1, 1.05))
