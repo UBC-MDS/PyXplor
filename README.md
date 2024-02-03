@@ -24,9 +24,17 @@ A package for simplifying the EDA of different data types!
 Online documentation can be found [here](https://pyxplor.readthedocs.io/en/latest/?badge=latest/).
 
 
-## Installation (developers)
+## Installation
 
-Note that the package is still under development.
+### <ins>User Installation</ins>
+
+Run the following code in your terminal to install the package from PyPI:
+
+```bash
+pip install pyxplor
+```
+
+### <ins>Developer Installation</ins>
 
 1. Clone the repository.
 
@@ -38,7 +46,7 @@ cd pyxplor
 2. Create an environment with conda and then activate the environment.
 
 ```bash
-conda create -n pyxplor python=3.11 -y
+conda create -n pyxplor python=3.12 -y
 conda activate pyxplor
 ```
 
