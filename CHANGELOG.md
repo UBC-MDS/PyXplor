@@ -2,6 +2,15 @@
 
 
 
+## v2.0.9 (2024-02-03)
+
+### Unknown
+
+* Merge pull request #123 from UBC-MDS/122-vignette-improvements-peer-review
+
+122 vignette improvements peer review ([`3de1c7c`](https://github.com/UBC-MDS/PyXplor/commit/3de1c7c6f89bfe2a5f9f4ff0417be703c5822a12))
+
+
 ## v2.0.8 (2024-02-03)
 
 ### Fix
@@ -9,6 +18,8 @@
 * fix: resolved merge conflicts based on addressing function feedback ([`d8d567c`](https://github.com/UBC-MDS/PyXplor/commit/d8d567c27fc8dc6f1745e7d8570e4a4705ebe91e))
 
 ### Unknown
+
+* Merge branch &#39;main&#39; into 122-vignette-improvements-peer-review ([`de09653`](https://github.com/UBC-MDS/PyXplor/commit/de0965369d1553553c00767adce89ace41637ba9))
 
 * Merge pull request #132 from UBC-MDS/124-plot_categorical-function-improvements-based-on-peer-review-feedback
 
@@ -94,6 +105,10 @@ fix: Feedback addressed by @iris0614 about plot_numeric:default color… ([`c6d3
 * fix: Feedback addressed by iris about color of numeric ([`a4a8a85`](https://github.com/UBC-MDS/PyXplor/commit/a4a8a85f0aa69ff7383aa61209c66f543bea1247))
 
 * fix: polish the docs adding more parameters ([`3359bb8`](https://github.com/UBC-MDS/PyXplor/commit/3359bb8c40f7d4057e2752359d59a468844877f2))
+
+* fix: Feedback addressed by adding more context around the seaborn taxis dataset used in the example - as suggested by joeywwwu ([`ed13e36`](https://github.com/UBC-MDS/PyXplor/commit/ed13e363d991b9a0633b080f2991845845a42a5e))
+
+* fix: Feedback addressed by adding more detailed background on the importance and application of EDA - as suggested by joeywwwu ([`b5c27f9`](https://github.com/UBC-MDS/PyXplor/commit/b5c27f9bc5b8277179038af9cdae233e33977fb5))
 
 * fix: Feedback addressed by @YimengXia about adding code coverage badge ([`9cda31a`](https://github.com/UBC-MDS/PyXplor/commit/9cda31a3942a63ad79e96917eb36091e658ee7f4))
 
