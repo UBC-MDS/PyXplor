@@ -2,6 +2,19 @@
 
 
 
+## v2.0.4 (2024-02-03)
+
+### Fix
+
+* fix: Feedback addressed by @iris0614 about plot_numeric:default color setting - suggested by @YimengXia ([`9780dcd`](https://github.com/UBC-MDS/PyXplor/commit/9780dcd8c6af370508c398dce2366b439efc798c))
+
+### Unknown
+
+* Merge pull request #127 from UBC-MDS/126-plot_numericcolor
+
+fix: Feedback addressed by @iris0614 about plot_numeric:default color… ([`c6d3f49`](https://github.com/UBC-MDS/PyXplor/commit/c6d3f4933a079cef416e25db55729d9325cf299c))
+
+
 ## v2.0.3 (2024-02-03)
 
 ### Fix
