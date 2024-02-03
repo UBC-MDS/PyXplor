@@ -2,6 +2,19 @@
 
 
 
+## v2.0.11 (2024-02-03)
+
+### Fix
+
+* fix: Feedback Addressed by @phchen5 about clarifying the example demonstration to check if the function works ([`b417bd1`](https://github.com/UBC-MDS/PyXplor/commit/b417bd1e4e4eeb988441d987078eabbff33e9936))
+
+### Unknown
+
+* Merge pull request #137 from UBC-MDS/136-update-readme-example-for-simpler-function-checking
+
+fix: Feedback Addressed by @phchen5 about clarifying the example demo… ([`ffcd15e`](https://github.com/UBC-MDS/PyXplor/commit/ffcd15ec90ef6ce084e7efcc5319680e16bb9f05))
+
+
 ## v2.0.10 (2024-02-03)
 
 ### Fix
