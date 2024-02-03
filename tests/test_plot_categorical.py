@@ -88,12 +88,19 @@ def test_plot_categorical_return(test_data):
     cols = math.ceil(len(test_data.columns.to_list()) / rows) 
     assert len(ax) == rows * cols
 
-# Test correct return with multiple features in list
+# Test correct return with single feature in list
 def test_plot_categorical_return(test_data):
     fig, ax = plot_categorical(test_data, ['Categorical_Variable_1'])
     assert isinstance(fig, plt.Figure)
     assert isinstance(ax, matplotlib.axes._axes.Axes)
     assert fig._suptitle.get_text() == "Distribution of Categorical Variables"
+
+# Test correct order of bars 
+def test_bar_order_single(test_data):
+    __, ax = plot_categorical(test_data, ['Categorical_Variable_1'])
+    expected_order = test_data['Categorical_Variable_1'].value_counts(ascending=True).index.tolist()
+    bars = [tick.get_text() for tick in ax.get_yticklabels()]
+    assert bars == expected_order
 
 # Test subplot titles
 def test_subplot_title(test_data):
